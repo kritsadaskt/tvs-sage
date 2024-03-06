@@ -11,5 +11,5 @@ jobs:
         host: '103.246.18.14'
         user: otters_tvs
         password: ${{ secrets.FTP_PWD }}
-        remoteDir: "./wp-content/themes/"
+        remoteDir: "./wp-content/themes/tvs-sage/"
         
