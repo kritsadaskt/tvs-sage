@@ -1,19 +1,15 @@
-on: [push]
-
+on: push
 jobs:
-  deploy_job:
+  deploy:
+    name: Deploy
     runs-on: ubuntu-latest
-    name: deploy
     steps:
-      - name: Checkout
-        uses: actions/checkout@v4
-      - name: Deploy
-        uses: wlixcc/SFTP-Deploy-Action@v1.2.4
-        with:
-          username: 'otters_tvs'
-          server: '103.246.18.14'
-          port: 21
-          password: ${{ secrets.FTP_PWD }} 
-          local_path: './*'
-          remote_path: './wp-content/themes/'
-          sftpArgs: '-o ConnectTimeout=5'
+    - uses: actions/checkout@v4
+    - name: Upload FTP
+      uses: sebastianpopp/ftp-action@releases/v2
+      with:
+        host: '103.246.18.14'
+        user: otters_tvs
+        password: ${{ secrets.FTP_PWD }}
+        remoteDir: "./wp-content/themes/"
+        
