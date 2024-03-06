@@ -3,7 +3,13 @@ const config = {
   content: ['./app/**/*.php', './resources/**/*.{php,vue,js}'],
   theme: {
     extend: {
-      colors: {}, // Extend Tailwind's default colors
+      fontFamily: {
+        Prompt: ["Prompt", "sans-serif"],
+      },
+      colors: {
+        'tvs-orange-1': '#ED3212',
+        'tvs-dark-1': '#181818',
+      },
     },
     container: {
       center: true,

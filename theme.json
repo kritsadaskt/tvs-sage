@@ -1249,6 +1249,16 @@
           "color": "#4c0519",
           "name": "Rose 950",
           "slug": "rose-950"
+        },
+        {
+          "color": "#ed3212",
+          "name": "Tvs-orange-1",
+          "slug": "tvs-orange-1"
+        },
+        {
+          "color": "#181818",
+          "name": "Tvs-dark-1",
+          "slug": "tvs-dark-1"
         }
       ]
     },
@@ -1287,6 +1297,11 @@
           "fontFamily": "ui-monospace,SFMono-Regular,Menlo,Monaco,Consolas,\"Liberation Mono\",\"Courier New\",monospace",
           "name": "Ui-monospace",
           "slug": "mono"
+        },
+        {
+          "fontFamily": "Prompt,sans-serif",
+          "name": "Prompt",
+          "slug": "Prompt"
         }
       ],
       "fontSizes": [
