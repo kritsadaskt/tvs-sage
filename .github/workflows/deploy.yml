@@ -1,0 +1,18 @@
+on: [push]
+
+jobs:
+  deploy_job:
+    runs-on: ubuntu-latest
+    name: deploy
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+      - name: Deploy
+        uses: wlixcc/SFTP-Deploy-Action@v1.2.4
+        with:
+          username: 'otters_tvs'
+          server: '103.246.18.14'
+          password: ${{ secrets.FTP_PWD }} 
+          local_path: './*'
+          remote_path: './wp-content/themes/'
+          sftpArgs: '-o ConnectTimeout=5'
