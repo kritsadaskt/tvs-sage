@@ -12,6 +12,7 @@ jobs:
         with:
           username: 'otters_tvs'
           server: '103.246.18.14'
+          port: 21
           password: ${{ secrets.FTP_PWD }} 
           local_path: './*'
           remote_path: './wp-content/themes/'
