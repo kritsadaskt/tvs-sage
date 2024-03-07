@@ -3,6 +3,7 @@ import domReady from '@roots/sage/client/dom-ready';
 import Swiper from 'swiper/bundle';
 // import Swiper and modules styles
 import 'swiper/css/bundle';
+import 'animate.css';
 
 import { gsap } from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
@@ -12,26 +13,27 @@ import { ScrollTrigger } from "gsap/ScrollTrigger";
  */
 domReady(async () => {
   gsap.registerPlugin(ScrollTrigger);
-  let panels = gsap.utils.toArray(".panel");
-  let tops = panels.map(panel => ScrollTrigger.create({trigger: panel, start: "top top"}));
-  panels.forEach((panel, i) => {
-    ScrollTrigger.create({
-      trigger: panel,
-      start: () => panel.offsetHeight < window.innerHeight ? "top top" : "bottom bottom",
-      pin: true, 
-      pinSpacing: false 
-    });
+
+  ScrollTrigger.create({
+    trigger: '#headline', 
+    start: "top top",
+    pin: true,
+    pinSpacing: false,
   });
 
   ScrollTrigger.create({
-    snap: {
-      snapTo: (progress, self) => {
-        let panelStarts = tops.map(st => st.start),
-        snapScroll = gsap.utils.snap(panelStarts, self.scroll());
-        return gsap.utils.normalize(0, ScrollTrigger.maxScroll(window), snapScroll);
-      },
-      duration: 0.5
-    }
+    trigger: '#editor_pick', 
+    start: "top top",
+    end: "bottom bottom",
+    pin: true,
+    pinSpacing: false,
+  });
+
+  ScrollTrigger.create({
+    trigger: "#dataviz",
+    start: "top top", 
+    end: "bottom -150px",
+    pin: "#dataviz_featured_img"
   });
   
   // Homepage Slider
@@ -48,6 +50,7 @@ domReady(async () => {
   const home_slider = new Swiper(homepage_top_slider, {
     slidesPerView: 1,
     loop: true,
+    speed: 800,
     //modules: [Navigation, Pagination],
     navigation: {
       nextEl: '.home-slide-btn.swiper-button-next',

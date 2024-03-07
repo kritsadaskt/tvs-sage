@@ -4,11 +4,16 @@ const config = {
   theme: {
     extend: {
       fontFamily: {
-        Prompt: ["Prompt", "sans-serif"],
+        prompt: ["Prompt", "sans-serif"],
+        baijam: ["Bai Jamjuree", "sans-serif"],
       },
       colors: {
         'tvs-orange-1': '#ED3212',
         'tvs-dark-1': '#181818',
+        'tvs-gray-1': '#555555',
+      },
+      aspectRatio: {
+        '4/3': '4 / 3',
       },
     },
     container: {

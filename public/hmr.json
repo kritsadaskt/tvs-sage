@@ -1,0 +1,22 @@
+{
+  "publicPath": "/app/themes/sage/public/",
+  "dev": {
+    "protocol": "http:",
+    "hostname": "localhost",
+    "hash": "",
+    "search": "",
+    "pathname": "/",
+    "path": "/",
+    "href": "http://localhost:3000/",
+    "port": 3000
+  },
+  "proxy": {
+    "protocol": "https:",
+    "hostname": "thevisual.test",
+    "hash": "",
+    "search": "",
+    "pathname": "/",
+    "path": "/",
+    "href": "https://thevisual.test/"
+  }
+}

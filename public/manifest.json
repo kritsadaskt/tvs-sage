@@ -1,9 +1,8 @@
 {
-  "app.css": "css/app.37b309.css",
-  "app.js": "js/app.bfff9a.js",
-  "editor.css": "css/editor.ef46db.css",
-  "editor.js": "js/editor.0344c8.js",
-  "runtime.js": "js/runtime.c039ed.js",
+  "app.js": "js/app.js",
+  "editor.js": "js/editor.js",
+  "runtime.js": "js/runtime.js",
   "../theme.json": "../theme.json",
+  "hmr.json": "hmr.json",
   "entrypoints.json": "entrypoints.json"
 }

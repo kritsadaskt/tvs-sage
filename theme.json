@@ -1259,6 +1259,11 @@
           "color": "#181818",
           "name": "Tvs-dark-1",
           "slug": "tvs-dark-1"
+        },
+        {
+          "color": "#555555",
+          "name": "Tvs-gray-1",
+          "slug": "tvs-gray-1"
         }
       ]
     },
@@ -1301,7 +1306,12 @@
         {
           "fontFamily": "Prompt,sans-serif",
           "name": "Prompt",
-          "slug": "Prompt"
+          "slug": "prompt"
+        },
+        {
+          "fontFamily": "Bai Jamjuree,sans-serif",
+          "name": "Bai Jamjuree",
+          "slug": "baijam"
         }
       ],
       "fontSizes": [
