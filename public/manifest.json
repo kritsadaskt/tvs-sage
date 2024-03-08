@@ -1,8 +1,0 @@
-{
-  "app.js": "js/app.js",
-  "editor.js": "js/editor.js",
-  "runtime.js": "js/runtime.js",
-  "../theme.json": "../theme.json",
-  "hmr.json": "hmr.json",
-  "entrypoints.json": "entrypoints.json"
-}
