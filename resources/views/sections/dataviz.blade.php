@@ -20,7 +20,7 @@ $dataviz_cats = array('Green', 'Urban', 'Culture', 'General', 'Equality');
             @php($dataviz_items->the_post())
             @if ($d == 1)
               <div class="dataviz_fetured_box py-10 border-b border-b-white">
-                <h4 class="text-[46px] font-bold text-white">{!! get_the_title() !!}</p>
+                <h4 class="text-[46px] font-bold text-white">{!! get_the_title() !!}</h4>
                 <p class="excerpt font-baijam text-white text-2xl font-light">{{get_the_excerpt()}}</p>
                 <a href="{{ get_the_permalink() }}" class="read-more text-2xl font-baijam text-white hover:text-tvs-orange-1 font-light">READ MORE</a>
               </div>
@@ -38,6 +38,7 @@ $dataviz_cats = array('Green', 'Urban', 'Culture', 'General', 'Equality');
             @php($d++)
           @endwhile
         @endif
+        @php(wp_reset_postdata())
       </div>
     </div>
     <div class="dataviz-right w-1/2">
