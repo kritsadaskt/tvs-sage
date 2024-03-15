@@ -2,8 +2,12 @@
 
 @section('content')
   @include('partials/right-sidebar')
-  @include('sections/home-slider')
-  @include('sections/headline')
+  <div class="panel">
+    @include('sections/home-slider')
+  </div>
+  <div class="panel">
+    @include('sections/headline')
+  </div>
   @include('sections/editors-pick')
   @include('sections/lastest-articles')
   @include('sections/dataviz')

@@ -3,10 +3,11 @@
   $info_1 = $infos[0];
 @endphp
 <div id="infographic" class="min-h-fit bg-white pt-14 pb-[70px]">
-  <div class="container flex gap-5">
-    <div id="infos_slides_wrapper" class="w-7/12 flex flex-col gap-4 pb-8 justify-end">
+  <div class="container flex-col-reverse md:flex-row flex gap-5">
+    <div id="infos_slides_wrapper" class="w-full md:w-7/12 flex flex-col gap-4 px-4 md:px-0 pb-8 justify-end">
       <h4 class="text-tvs-orange-1 text-xl font-semibold">Infographics</h4>
       <h4 class="info-text-shows text-[46px] font-bold text-black leading-tight animate__animated animate__flipInX">{{ $info_1['info_title'] }}</h4>
+      <img src="{{$info_1['infographics_image']}}" alt="" class="show-info-img w-full md:hidden">
       <div id="infos_slides" class="swiper w-full">
         <div id="infos_slides_nav" class="flex relative w-28 h-12 mb-4">
           <div class="swiper-button-prev bg-none after:hidden">
@@ -29,8 +30,8 @@
         </div>
       </div>
     </div>
-    <div id="info_show_wrapper" class="w-5/12 flex justify-center">
-      <img src="{{$info_1['infographics_image']}}" alt="" id="info_img" class="w-5/6">
+    <div id="info_show_wrapper" class="hidden w-5/12 md:flex justify-center">
+      <img src="{{$info_1['infographics_image']}}" alt="" class="show-info-img w-5/6">
     </div>
   </div>
 </div>

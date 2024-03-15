@@ -10,6 +10,12 @@
   }
 }
 
+@keyframes move_bg {
+  0% { background-size: 125%; }
+  50% { background-size: 100%; }
+  100% { background-size: 125%; }
+}
+
 body.logged-in {
   header, #right_sidebar {
     top: 32px;
@@ -19,6 +25,7 @@ body.logged-in {
 #home_slider {
   .main-slide {
     position: relative;
+    background-position: center top;
   }
   .main-slide::before {
     content: '';
@@ -27,7 +34,14 @@ body.logged-in {
     width: 100%;
     height: 100%;
     position: absolute;
-    background-color: rgba(0,0,0,0.5);
+    background-color: rgba(0,0,0,0.7);
   }
 }
 
+.animate_bg {
+  animation-name: move_bg;
+  animation-duration: 40s;
+  animation-timing-function: linear;
+  animation-fill-mode: both;
+  animation-iteration-count: infinite;
+}

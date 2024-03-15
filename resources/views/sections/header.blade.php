@@ -2,7 +2,7 @@
   $custom_logo_id = get_theme_mod( 'custom_logo' );
   $logo = wp_get_attachment_image_src( $custom_logo_id , 'full' );
 @endphp
-<header class="banner absolute w-full top-0 left-0 z-10 py-4 px-2 md:px-0 md:py-5">
+<header class="banner fixed w-full top-0 left-0 z-10 py-4 px-2 md:px-0 md:py-5">
   <div class="container mx-auto flex justify-between items-center">
     <div class="logo">
       <a href="" class="site-logo w-[200px] block">

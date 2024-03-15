@@ -14,27 +14,38 @@ import { ScrollTrigger } from "gsap/ScrollTrigger";
 domReady(async () => {
   gsap.registerPlugin(ScrollTrigger);
 
-  ScrollTrigger.create({
-    trigger: '#headline', 
-    start: "top top",
-    pin: true,
-    pinSpacing: false,
+  let panels = gsap.utils.toArray(".panel");
+
+  panels.forEach((panel, i) => {
+    ScrollTrigger.create({
+      trigger: panel,
+      //start: () => panel.offsetHeight < window.innerHeight ? "top top" : "bottom bottom", // if it's shorter than the viewport, we prefer to pin it at the top
+      pin: true, 
+      pinSpacing: false 
+    });
   });
 
-  ScrollTrigger.create({
-    trigger: '#editor_pick', 
-    start: "top top",
-    end: "bottom bottom",
-    pin: true,
-    pinSpacing: false,
-  });
+  // ScrollTrigger.create({
+  //   trigger: '#headline', 
+  //   start: "top top",
+  //   pin: true,
+  //   pinSpacing: false,
+  // });
 
-  ScrollTrigger.create({
-    trigger: "#dataviz",
-    start: "top top", 
-    end: "bottom bottom",
-    pin: "#dataviz_featured_img"
-  });
+  // ScrollTrigger.create({
+  //   trigger: '#editor_pick', 
+  //   start: "top top",
+  //   end: "bottom bottom",
+  //   pin: true,
+  //   pinSpacing: false,
+  // });
+
+  // ScrollTrigger.create({
+  //   trigger: "#dataviz",
+  //   start: "top top", 
+  //   end: "bottom bottom",
+  //   pin: "#dataviz_featured_img"
+  // });
 
   // Homepage Slider
   const homepage_top_slider = document.getElementById('home_slider');
@@ -92,6 +103,18 @@ domReady(async () => {
       }, 100);
     }, 500);
     document.getElementById('info_img').src = active_sl.dataset.img;
+  });
+
+  home_slider.on('slideChangeTransitionStart', (sl)=> {
+    let active_sl = document.querySelector('#home_slider .swiper-slide-active');
+    let hero_slides = document.querySelectorAll('.main-slide');
+    
+    hero_slides.forEach((sli)=>{
+      sli.classList.remove('animate_bg');
+    });
+
+    active_sl.classList.add('animate_bg');
+
   });
 
 });
