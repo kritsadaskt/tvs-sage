@@ -1,5 +1,5 @@
 @php
-$hero_slides = get_field('hero_banner', get_the_ID());    
+$hero_slides = get_field('hero_banner', get_the_ID());
 @endphp
 <div id="home_slider" class="swiper h-[90vh] md:h-screen relative">
   <div class="swiper-wrapper ease-[cubic-bezier(.02,.47,.58,.98)]">

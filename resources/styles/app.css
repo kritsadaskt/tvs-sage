@@ -45,3 +45,13 @@ body.logged-in {
   animation-fill-mode: both;
   animation-iteration-count: infinite;
 }
+
+.info-text-shows {
+  animation-duration: 300ms;
+}
+
+#infos_slides {
+  .swiper-pagination-progressbar-fill {
+    @apply bg-tvs-orange-1;
+  }
+}

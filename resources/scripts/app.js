@@ -85,6 +85,10 @@ domReady(async () => {
       nextEl: '#infos_slides_nav .swiper-button-next',
       prevEl: '#infos_slides_nav .swiper-button-prev',
     },
+    pagination: {
+      el: "#infos_slides .swiper-pagination",
+      type: "progressbar",
+    },
   });
 
   const classToggle = function(el, class0, class1) {
@@ -95,13 +99,13 @@ domReady(async () => {
   infos_slider.on('slideChangeTransitionEnd', (sl)=>{
     let active_sl = document.querySelector('#infos_slides .swiper-slide-active');
     let info_txt = document.querySelector('.info-text-shows');
-    classToggle(info_txt, 'animate__flipInX', 'animate__flipOutX');
+    classToggle(info_txt, 'animate__fadeIn', 'animate__fadeOut');
     setTimeout(()=>{ 
       document.querySelector('.info-text-shows').innerText = active_sl.dataset.title;
       setTimeout(()=>{
-        classToggle(info_txt, 'animate__flipInX', 'animate__flipOutX');
+        classToggle(info_txt, 'animate__fadeIn', 'animate__fadeOut');
       }, 100);
-    }, 500);
+    }, 300);
     document.getElementById('info_img').src = active_sl.dataset.img;
   });
 
@@ -116,6 +120,18 @@ domReady(async () => {
     active_sl.classList.add('animate_bg');
 
   });
+
+  // Set Data Viz Listed height
+  const dataviz_sec = document.getElementById('dataviz');
+  if (dataviz_sec) {
+    let thumb_h = document.getElementById('dataviz_featured_img').offsetHeight;
+    if (thumb_h) {
+      let k = document.getElementById('dataviz_left_header').offsetHeight;
+      document.getElementById('dataviz_listed').style.height = (thumb_h - k) + 'px';
+    }
+    let thumb_img = document.getElementById('dataviz_featured_img').dataset.bgimg;
+    document.getElementById('dataviz_backdrop').style.backgroundImage = 'url('+thumb_img+')';
+  }
 
 });
 
