@@ -133,6 +133,15 @@ domReady(async () => {
     document.getElementById('dataviz_backdrop').style.backgroundImage = 'url('+thumb_img+')';
   }
 
+  ScrollTrigger.create({
+    start: 'top -200',
+    end: 99999,
+    toggleClass: {
+      className: 'header--fixed',
+      targets: 'header',
+    }
+  });
+
 });
 
 /**

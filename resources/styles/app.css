@@ -22,6 +22,14 @@ body.logged-in {
   }
 }
 
+header {
+  @apply transition-all duration-200;
+}
+
+.header--fixed {
+  @apply bg-black transition-all duration-200 ease-in;
+}
+
 #home_slider {
   .main-slide {
     position: relative;
