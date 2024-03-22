@@ -1,14 +1,5 @@
 @php
   $articles = new WP_Query(array('post_type'=>'post', 'posts_per_page'=>7));
-  function get_post_cat(Int $id) {
-    if ($id) {
-      $cat = get_the_category($id);
-    }
-    
-    $r = $cat[0]->name;
-
-    return $r;
-  }
 @endphp
 <div id="lastest_articles" class="min-h-screen bg-white px-4 md:px-0 py-10 relative">
   <div class="container flex flex-col md:grid md:grid-cols-3 gap-5">

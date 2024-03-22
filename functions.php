@@ -64,4 +64,14 @@ collect(['setup', 'filters'])
         }
     });
 
-    add_theme_support( 'custom-logo' );
+add_theme_support( 'custom-logo' );
+
+function get_post_cat(Int $id) {
+  if ($id) {
+    $cat = get_the_category($id);
+  }
+  
+  $r = $cat[0]->name;
+
+  return $r;
+}

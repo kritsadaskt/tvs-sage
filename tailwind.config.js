@@ -11,6 +11,7 @@ const config = {
         'tvs-orange-1': '#ED3212',
         'tvs-dark-1': '#181818',
         'tvs-gray-1': '#555555',
+        'tvs-light-gray': '#B8B8B8',
       },
       aspectRatio: {
         '4/3': '4 / 3',

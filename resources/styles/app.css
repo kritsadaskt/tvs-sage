@@ -55,3 +55,14 @@ body.logged-in {
     @apply bg-tvs-orange-1;
   }
 }
+
+#articles_wrapper {
+  .featured_text_box {
+    h4 {
+      &::after {
+        content: 'Highlight';
+        @apply px-2 py-1 bg-red-600 text-white text-[10px] leading-none;
+      }
+    }
+  }
+}
