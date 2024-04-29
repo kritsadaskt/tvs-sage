@@ -25,6 +25,6 @@ jobs:
       uses: SamKirkland/FTP-Deploy-Action@v4.3.5
       with:
         server: '103.246.18.14'
-        username: otterdev
-        password: 28B^0tns
+        username: otters_tvs
+        password: ${{FTP_PWD}}
         server-dir: "./wp-content/themes/tvs-sage/"
