@@ -1,5 +1,5 @@
 @php
-$editors_pick = get_field('editors_pick', get_the_ID());
+$editors_pick = get_field('editor_pick', get_the_ID());
 @endphp
 <div id="editor_pick" class="min-h-[810px] relative flex items-end">
   <div id="editors_pick_backdrop" class="h-full w-full absolute bg-cover bg-center" style="background-image: url('{{ $editors_pick[0]['image'] }}')">
