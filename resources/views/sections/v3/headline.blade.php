@@ -1,7 +1,6 @@
 @php
   $cat = get_field('topic_buttons_group', get_the_ID());
   array_push($cat, array('button_title'=>'About Us', 'link'=>'', 'description'=>'Lorem Ipsum vovemcoven.','background_img'=>''));
-  print_r($cat);
 @endphp
 <div id="headline" class="bg-black items-center flex px-4 md:px-0 py-16">
   <div class="container">
