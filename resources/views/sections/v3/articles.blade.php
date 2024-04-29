@@ -17,7 +17,7 @@
       @while ($articles->have_posts())
         @php($articles->the_post())
         <a href="{{ get_the_permalink() }}" title="{!! get_the_title() !!}">
-          <div class="lastest-article-box box-{{$i}}">
+          <div class="lastest-article-box">
             <div class="post-thumbnail aspect-video bg-cover bg-center mb-4 border border-tvs-light-gray" style="background-image: url({!! get_the_post_thumbnail_url() !!})"></div>
           </div>
         </a>
