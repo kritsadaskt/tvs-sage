@@ -12,134 +12,99 @@ import { ScrollTrigger } from "gsap/ScrollTrigger";
  * Application entrypoint
  */
 domReady(async () => {
-  gsap.registerPlugin(ScrollTrigger);
-
-  let panels = gsap.utils.toArray(".panel");
-
-  panels.forEach((panel, i) => {
-    ScrollTrigger.create({
-      trigger: panel,
-      //start: () => panel.offsetHeight < window.innerHeight ? "top top" : "bottom bottom", // if it's shorter than the viewport, we prefer to pin it at the top
-      pin: true, 
-      pinSpacing: false 
-    });
-  });
-
-  // ScrollTrigger.create({
-  //   trigger: '#headline', 
-  //   start: "top top",
-  //   pin: true,
-  //   pinSpacing: false,
-  // });
-
-  // ScrollTrigger.create({
-  //   trigger: '#editor_pick', 
-  //   start: "top top",
-  //   end: "bottom bottom",
-  //   pin: true,
-  //   pinSpacing: false,
-  // });
-
-  // ScrollTrigger.create({
-  //   trigger: "#dataviz",
-  //   start: "top top", 
-  //   end: "bottom bottom",
-  //   pin: "#dataviz_featured_img"
-  // });
-
-  // Homepage Slider
+  const home_slider_section = document.getElementById('home_slider_section');
   const homepage_top_slider = document.getElementById('home_slider');
-  const home_slider_thumbs = document.getElementById('home_slider_thumbs');
-
-  const home_thumbnails = new Swiper(home_slider_thumbs, {
-    slidesPerView: 2.2,
-    loop: true,
-    watchSlidesProgress: true,
-    breakpoints: {
-      640: {
-        slidesPerView: 4,
-        spaceBetween: 5,
-      }
-    }
-  });
 
   const home_slider = new Swiper(homepage_top_slider, {
-    slidesPerView: 1,
+    slidesPerView: 3,
+    centeredSlides: true,
     loop: true,
     speed: 800,
-    //modules: [Navigation, Pagination],
+    spaceBetween: 20,
+    //modules: [Navigation],
     navigation: {
       nextEl: '.home-slide-btn.swiper-button-next',
       prevEl: '.home-slide-btn.swiper-button-prev',
     },
-    thumbs: {
-      swiper: home_thumbnails,
-    }
+    pagination: {
+      el: ".home-slide-pagination",
+    },
+    // thumbs: {
+    //   swiper: home_thumbnails,
+    // }
   });
 
-  const infos_slider  = new Swiper('#infos_slides', {
-    slidesPerView: 4,
-    spaceBetween: 15,
+  const infographic_slider = new Swiper('#infos_slider', {
+    slidesPerView: 5,
+    centeredSlides: true,
     loop: true,
+    allowTouchMove: false,
+    //loopAdditionalSlides: 10,
+    // speed: 800,
+    spaceBetween: 10,
     navigation: {
-      nextEl: '#infos_slides_nav .swiper-button-next',
-      prevEl: '#infos_slides_nav .swiper-button-prev',
+      nextEl: ".swiper-button-next.info-next",
+      prevEl: ".swiper-button-prev.info-prev",
     },
+  });
+
+  //console.log(homepage_top_slider.querySelector('.swiper-slide-active').dataset.backdrop);
+
+  home_slider_section.querySelector('.bottom-layer').style.backgroundImage = 'url("'+homepage_top_slider.querySelector('.swiper-slide-active').dataset.backdrop+'")';
+
+  document.getElementById('hero_title').innerHTML = homepage_top_slider.querySelector('.swiper-slide-active').dataset.title;
+  document.getElementById('hero_desc').innerHTML = homepage_top_slider.querySelector('.swiper-slide-active').dataset.desc;
+
+  home_slider.on('slideChangeTransitionStart', function() {
+    home_slider_section.querySelector('.bottom-layer').style.opacity = 0;
+    home_slider_section.querySelector('.description').style.opacity = 0;
+  });
+
+  home_slider.on('slideChangeTransitionEnd', function() {
+    let current_backdrop_bg = homepage_top_slider.querySelector('.swiper-slide.swiper-slide-active').dataset.backdrop;
+    home_slider_section.querySelector('.bottom-layer').style.backgroundImage = 'url("'+current_backdrop_bg+'")';
+    document.getElementById('hero_title').innerHTML = homepage_top_slider.querySelector('.swiper-slide-active').dataset.title;
+    document.getElementById('hero_desc').innerHTML = homepage_top_slider.querySelector('.swiper-slide-active').dataset.desc;
+    setTimeout(() => {
+      home_slider_section.querySelector('.bottom-layer').style.opacity = 1;
+      home_slider_section.querySelector('.description').style.opacity = 1;
+    }, 50);
+  });
+
+  const mainClipPlayer = document.getElementById('clip_player');
+  const clipPlaylisted = document.getElementById('clips_listed');
+
+  clipPlaylisted.style.height = mainClipPlayer.offsetHeight+'px';
+  //console.log(mainClipPlayer.offsetHeight);
+
+  const reels_slider = new Swiper('#reel_slider', {
+    slidesPerView: 4,
+    spaceBetween: 20,
+  })
+
+  const editors_pick_slider = new Swiper('#editors_pick_slider', {
+    slidesPerView: 4.5,
+    freeMode: true,
     pagination: {
-      el: "#infos_slides .swiper-pagination",
+      el: "#editors_pick_slider .swiper-pagination",
       type: "progressbar",
     },
   });
 
-  const classToggle = function(el, class0, class1) {
-    el.classList.toggle(class0);
-    el.classList.toggle(class1);
-  }
+  const about_btn = document.getElementById('about_btn');
+  const readout = document.querySelector('.readout');
 
-  infos_slider.on('slideChangeTransitionEnd', (sl)=>{
-    let active_sl = document.querySelector('#infos_slides .swiper-slide-active');
-    let info_txt = document.querySelector('.info-text-shows');
-    classToggle(info_txt, 'animate__fadeIn', 'animate__fadeOut');
-    setTimeout(()=>{ 
-      document.querySelector('.info-text-shows').innerText = active_sl.dataset.title;
-      setTimeout(()=>{
-        classToggle(info_txt, 'animate__fadeIn', 'animate__fadeOut');
-      }, 100);
-    }, 300);
-    document.getElementById('info_img').src = active_sl.dataset.img;
-  });
-
-  home_slider.on('slideChangeTransitionStart', (sl)=> {
-    let active_sl = document.querySelector('#home_slider .swiper-slide-active');
-    let hero_slides = document.querySelectorAll('.main-slide');
+  about_btn.addEventListener('mousemove', (e) => {
+    const { x,y } = about_btn.getBoundingClientRect();
+    about_btn.style.setProperty("--x", e.clientX - x);
+    about_btn.style.setProperty("--y", e.clientY - y);
     
-    hero_slides.forEach((sli)=>{
-      sli.classList.remove('animate_bg');
-    });
+    readout.innerText = `
+    mouse X: ${e.clientX} mouse Y: ${e.clientY}
 
-    active_sl.classList.add('animate_bg');
+    left edge: ${parseInt(x)} top edge: ${parseInt(y)}
 
-  });
-
-  // Set Data Viz Listed height
-  const dataviz_sec = document.getElementById('dataviz');
-  if (dataviz_sec) {
-    let thumb_h = document.getElementById('dataviz_featured_img').offsetHeight;
-    if (thumb_h) {
-      let k = document.getElementById('dataviz_left_header').offsetHeight;
-      document.getElementById('dataviz_listed').style.height = (thumb_h - k) + 'px';
-    }
-    let thumb_img = document.getElementById('dataviz_featured_img').dataset.bgimg;
-    document.getElementById('dataviz_backdrop').style.backgroundImage = 'url('+thumb_img+')';
-  }
-
-  ScrollTrigger.create({
-    start: 'top -200',
-    end: 99999,
-    toggleClass: {
-      className: 'header--fixed',
-      targets: 'header',
-    }
+    BTN X: ${e.clientX - parseInt(x)} shiny Y: ${e.clientY - parseInt(y)}`;
   });
 
 });

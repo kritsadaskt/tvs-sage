@@ -1,15 +1,15 @@
+{{--
+  Template Name: Homepage V3
+--}}
+
 @extends('layouts.app')
 
 @section('content')
-  @include('partials/right-sidebar')
-  <div class="panel">
-    @include('sections/home-slider')
-  </div>
-  <div class="panel">
-    @include('sections/headline')
-  </div>
-  @include('sections/dataviz')
-  @include('sections/lastest-articles')
-  @include('sections/videos')
-  @include('sections/infographic')
+  @include('partials/left-sidebar')
+  @include('sections/v3/home-slider')
+  @include('sections/v3/headline')
+  @include('sections/v3/editors-pick')
+  @include('sections/v3/articles')
+  @include('sections/v3/videos')
+  @include('sections/v3/infographic')
 @endsection

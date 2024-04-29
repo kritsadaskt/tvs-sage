@@ -1261,14 +1261,29 @@
           "slug": "tvs-dark-1"
         },
         {
+          "color": "#111111",
+          "name": "Tvs-dark-2",
+          "slug": "tvs-dark-2"
+        },
+        {
           "color": "#555555",
           "name": "Tvs-gray-1",
           "slug": "tvs-gray-1"
         },
         {
+          "color": "#484848",
+          "name": "Tvs-gray-2",
+          "slug": "tvs-gray-2"
+        },
+        {
           "color": "#b8b8b8",
           "name": "Tvs-light-gray",
           "slug": "tvs-light-gray"
+        },
+        {
+          "color": "#cccccc",
+          "name": "Tvs-light-gray-2",
+          "slug": "tvs-light-gray-2"
         }
       ]
     },
