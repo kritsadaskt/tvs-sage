@@ -26,5 +26,5 @@ jobs:
       with:
         server: '103.246.18.14'
         username: otters_tvs
-        password: ${{FTP_PWD}}
+        password: ${{secrets.FTP_PWD}}
         server-dir: "./wp-content/themes/tvs-sage/"
