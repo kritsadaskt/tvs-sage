@@ -8,7 +8,7 @@
       <h3 class="text-[22px] md:text-[26px] text-white font-normal leading-tight">เปิดประสบการณ์ใหม่ของการเปลี่ยนข้อมูล<br class="hidden md:block">มหาศาล เป็นเรื่องเล่าเข้าใจง่ายด้วย</h3>
       <h3 class="text-[36px] md:text-[42px] text-tvs-orange-1 font-semibold">Data Visualization (Data Viz)</h3>
     </div>
-    <div id="cat_boxes" class="grid grid-cols-3 grid-rows-2 border-l border-t border-[#484848]">
+    <div id="cat_boxes" class="grid grid-cols-1 md:grid-cols-3 md:grid-rows-2 border-l border-t border-[#484848]">
       @foreach ($cat as $box)
 
         @if ($loop->last)
