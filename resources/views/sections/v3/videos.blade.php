@@ -32,7 +32,7 @@
     </div>
   </div>
   <div id="reels" class="container">
-    <h2 class="text-[28px] text-white font-medium mb-7">REELS</h2>
+    <h2 class="text-[28px] text-white font-medium mb-7">SHORT</h2>
     <div id="reel_slider" class="swiper">
       <div class="swiper-wrapper">
         @foreach ($reels as $reel)
