@@ -8,6 +8,8 @@ import 'animate.css';
 import { gsap } from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 
+gsap.registerPlugin(ScrollTrigger);
+
 /**
  * Application entrypoint
  */
@@ -105,6 +107,15 @@ domReady(async () => {
     left edge: ${parseInt(x)} top edge: ${parseInt(y)}
 
     BTN X: ${e.clientX - parseInt(x)} shiny Y: ${e.clientY - parseInt(y)}`;
+  });
+
+  ScrollTrigger.create({
+    trigger: "body", 
+    start: "top -120", 
+    toggleClass: {
+      targets: "header",
+      className: "mini"
+    }
   });
 
 });

@@ -5,6 +5,7 @@
 @extends('layouts.app')
 
 @section('content')
+  @include('sections/v3/header')
   @include('partials/left-sidebar')
   @include('sections/v3/home-slider')
   @include('sections/v3/headline')
