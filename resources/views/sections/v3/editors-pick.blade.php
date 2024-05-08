@@ -1,20 +1,17 @@
 @php
-$editors_pick = get_field('editor_pick', get_the_ID());
+$editors_pick = get_field('editors_pick', get_the_ID());
 @endphp
-<div id="editor_pick" class="min-h-[810px] relative flex items-end">
-  <div id="editors_pick_backdrop" class="h-full w-full absolute bg-cover bg-center" style="background-image: url('{{ $editors_pick[0]['image'] }}')">
+<div id="editor_pick" class="min-h-[765px] relative flex items-end">
+  <div id="editors_pick_backdrop" class="h-full w-full absolute bg-cover bg-center">
+    @if ($editors_pick['video'] !== '')
+    <video autoplay muted loop class="w-full">
+      <source src="{{ $editors_pick['video'] }}" type="video/mp4">
+    </video>
+    @endif
   </div>
   <div class="container flex gap-4 relative">
     <div id="edtors_pick_listed" class="w-7/12 flex flex-col justify-end mb-8">
       <h2 class="text-[32px] text-white font-semibold border-l-[19px] border-tvs-orange-1 pl-3 mb-5">EDITOR'S PICK</h2>
-      <div id="editors_pick_slider" class="swiper w-full pb-5">
-        <div class="swiper-wrapper">
-          @foreach ($editors_pick as $key=>$item)
-            <div class="swiper-slide item-{{$key+1}} aspect-video bg-cover bg-center" style="background-image: url('{{$item['image']}}')"></div>
-          @endforeach
-        </div>
-        <div class="swiper-pagination !top-auto bottom-0"></div>
-      </div>
     </div>
     <div id="edtors_pick_info" class="w-5/12 pt-12 px-10 pb-10 backdrop-blur-md bg-black/40 min-h-[320px] flex flex-col justify-between">
       <div class="top-box">

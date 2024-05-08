@@ -95,7 +95,7 @@ body.logged-in {
 #editors_pick_backdrop {
   &::after {
     content: '';
-    @apply w-full h-full absolute;
+    @apply w-full h-full absolute top-0;
     background: radial-gradient(ellipse at 70% 10%, transparent, #000);
   }
 }
