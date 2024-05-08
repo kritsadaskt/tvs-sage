@@ -17,7 +17,7 @@
 
       {{-- @include('sections.header') --}}
 
-      <main id="main" class="main md:pl-[60px]">
+      <main id="main" class="main md:pr-[60px]">
         @yield('content')
       </main>
 

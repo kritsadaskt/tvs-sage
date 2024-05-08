@@ -1,4 +1,4 @@
-<div id="left_sidebar" class="fixed w-[60px] h-20 md:h-screen bg-tvs-dark-2 left-0 top-0 z-10 flex items-center md:items-start justify-center p-5 md:pt-8">
+<div id="left_sidebar" class="fixed w-[60px] h-20 md:h-screen bg-tvs-dark-2 right-0 top-0 z-10 flex items-center md:items-start justify-center p-5 md:pt-8">
   <div class="sidebar_buttons flex flex-col gap-4">
     <button id="toggle_menu">
       <svg width="20" height="17" viewBox="0 0 20 17" fill="none" xmlns="http://www.w3.org/2000/svg">
