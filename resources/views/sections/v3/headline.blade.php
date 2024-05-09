@@ -18,7 +18,7 @@
               </svg>
             <div class="text-box">
               <h4 class="text-4xl font-semibold text-tvs-orange-1 mb-2" style="background-image: url('{{ $box['background_img'] }}')">{{ $box['button_title'] }}</h4>
-              <p class="text-white font-baijam font-light">{{ $box['description'] }}</p>
+              <p class="text-white font-baijam font-light hidden">{{ $box['description'] }}</p>
             </div>
           </a>
         @else
@@ -29,7 +29,7 @@
                 </svg>              
               <div class="text-box">
                 <h4 class="text-4xl font-semibold bg-[length:425px_199px] bg-[-20px_110px] bg-clip-text text-transparent mb-2" style="background-image: url('{{ $box['background_img'] }}')">{{ $box['button_title'] }}</h4>
-                <p class="text-white font-baijam font-light">{{ $box['description'] }}</p>
+                <p class="text-white font-baijam font-light hidden">{{ $box['description'] }}</p>
               </div>
             </div>
           </a>
