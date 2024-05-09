@@ -118,6 +118,19 @@ domReady(async () => {
     }
   });
 
+  const headline = document.getElementById("headline");
+  const headlineH = headline.offsetHeight;
+  console.log(headlineH);
+
+  ScrollTrigger.create({
+    trigger: "#scroll_1",
+    start: "bottom bottom+=1000",
+    //markers: true,
+    //end: `bottom+=${headlineH}`,
+    pin: true,
+    pinSpacing: false,
+  });
+
 });
 
 /**
