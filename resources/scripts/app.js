@@ -3,7 +3,6 @@ import domReady from '@roots/sage/client/dom-ready';
 import Swiper from 'swiper/bundle';
 // import Swiper and modules styles
 import 'swiper/css/bundle';
-import 'animate.css';
 
 import { gsap } from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
@@ -118,18 +117,16 @@ domReady(async () => {
     }
   });
 
-  const headline = document.getElementById("headline");
-  const headlineH = headline.offsetHeight;
-  console.log(headlineH);
-
-  ScrollTrigger.create({
-    trigger: "#scroll_1",
-    start: "bottom bottom+=1000",
-    //markers: true,
-    //end: `bottom+=${headlineH}`,
-    pin: true,
-    pinSpacing: false,
-  });
+  if (window.innerWidth >= 992) {
+    ScrollTrigger.create({
+      trigger: "#scroll_1",
+      start: "bottom bottom+=1000",
+      //markers: true,
+      //end: `bottom+=${headlineH}`,
+      pin: true,
+      pinSpacing: false,
+    });
+  }
 
 });
 

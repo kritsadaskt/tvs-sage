@@ -16,8 +16,8 @@
         </svg>        
     </a>
   </div>
-  <div id="main_player" class="container flex gap-4 mb-10">
-    <div id="clip_player" class="w-9/12 h-fit">
+  <div id="main_player" class="container flex flex-col md:flex-row gap-4 mb-10">
+    <div id="clip_player" class="md:w-9/12 h-fit">
       @php
         $fst = $vdo_links[0];
       @endphp
@@ -25,7 +25,7 @@
       <h4 id="clip_title" class="text-white text-[24px] mb-1">{{ $fst['title'] }}</h4>
       <p id="clip_desc" class="text-tvs-light-gray-2 text-[18px]">{{ $fst['description'] }}</p>
     </div>
-    <div id="clips_listed" class="w-3/12 flex flex-col gap-4 overflow-scroll">
+    <div id="clips_listed" class="md:w-3/12 flex flex-col gap-4 overflow-scroll">
       @foreach ($vdo_links as $key=>$vdo)
         <div class="clip-thumb w-full min-h-[177px] bg-cover vdo-{{$key+1}} {{ $key+1 == 1 ? 'playing':'' }} self-start" style="background-image: url({{ $vdo['thumbnail'] }})"></div>
       @endforeach
@@ -46,7 +46,7 @@
       </div>
     </div>
     <div class="view-all-btn-wrapper text-center flex mt-8 justify-center">
-      <a href="" class="view-all-articles uppercase text-white bg-tvs-orange-1 rounded-3xl px-10 py-2">SEE MORE REELS</a>
+      <a href="" class="view-all-articles uppercase text-white bg-tvs-orange-1 rounded-3xl px-10 py-2 tvs-btn-hover">SEE MORE REELS</a>
     </div>
   </div>
 </div>

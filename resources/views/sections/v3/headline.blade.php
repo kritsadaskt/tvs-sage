@@ -5,8 +5,8 @@
 <div id="headline" class="bg-black items-center flex px-4 md:px-0 py-16">
   <div class="container">
     <div class="headline-text-box flex flex-col gap-3 text-center mb-10">
-      <h3 class="text-[22px] md:text-[26px] text-white font-normal leading-tight">เปิดประสบการณ์ใหม่ของการเปลี่ยนข้อมูล<br class="hidden md:block">มหาศาล เป็นเรื่องเล่าเข้าใจง่ายด้วย</h3>
       <h3 class="text-[36px] md:text-[42px] text-tvs-orange-1 font-semibold">Data Visualization (Data Viz)</h3>
+      <p class="text-white text-center lg:w-4/5 mx-auto">มิติใหม่ของการนำเสนอและสะท้อนประเด็นสำคัญของสังคม จากข้อมูลมหาศาลที่ซับซ้อน <br/>ให้เป็นเรื่องเล่าเข้าใจง่าย ผ่านกระบวนการวิเคราะห์ ออกแบบและบอกเล่าข้อมูล (Data Storytelling) <br/>สู่สายตาผู้ชมในรูปแบบของอินเทอร์แอคทีฟ มัลติมีเดียที่หลากหลาย ภายใต้แบรนด์ "The Visual" ด้วยแนวคิด "Making Data Visible"</p>
     </div>
     <div id="cat_boxes" class="grid grid-cols-1 md:grid-cols-3 md:grid-rows-2 border-l border-t border-[#484848]">
       @foreach ($cat as $box)

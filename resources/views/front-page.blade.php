@@ -7,7 +7,7 @@
 @section('content')
   @include('sections/v3/header')
   @include('partials/left-sidebar')
-  <div id="scroll_1" class="pb-[1000px]">
+  <div id="scroll_1" class="lg:pb-[1000px]">
   @include('sections/v3/home-slider')
   @include('sections/v3/headline')
   </div>

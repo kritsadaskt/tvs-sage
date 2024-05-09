@@ -12,20 +12,20 @@
         </svg>        
     </a>
   </div>
-  <div class="container flex flex-col md:grid md:grid-cols-3 gap-5 mb-10">
+  <div class="container flex flex-col md:grid md:grid-cols-3 gap-3 lg:gap-5 mb-10">
     @if ($articles->have_posts())
       @while ($articles->have_posts())
         @php($articles->the_post())
         <a href="{{ get_the_permalink() }}" title="{!! get_the_title() !!}">
           <div class="lastest-article-box">
-            <div class="post-thumbnail aspect-video bg-cover bg-center mb-4 border border-tvs-light-gray" style="background-image: url({!! get_the_post_thumbnail_url() !!})"></div>
+            <div class="post-thumbnail aspect-video bg-cover bg-center md:mb-3 lg:mb-4 border border-tvs-light-gray" style="background-image: url({!! get_the_post_thumbnail_url() !!})"></div>
           </div>
         </a>
       @endwhile
     @endif
     @php(wp_reset_postdata())
     <div class="view-all-btn-wrapper text-center col-span-3 my-4">
-      <a href="" class="view-all-articles uppercase text-white bg-tvs-orange-1 rounded-3xl px-10 py-2">SEE MORE</a>
+      <a href="" class="view-all-articles uppercase text-white bg-tvs-orange-1 rounded-3xl px-10 py-2 inline-block hover:scale-110 transition-all duration-300 ease-in-out">SEE MORE</a>
     </div>
   </div>
   <div id="highlight_articles" class="container border border-gray-200 pt-20 px-10 pb-11 relative overflow-hidden">
@@ -41,7 +41,7 @@
         @endforeach
       </div>
       <div class="flex justify-center">
-        <a href="" class="bg-black text-white px-8 py-1 rounded-3xl">SEE ALL ARTICLES IN THIS TOPIC</a>
+        <a href="" class="bg-black text-white px-8 py-1 rounded-3xl hover:scale-110 transition-all duration-300 ease-in-out">SEE ALL ARTICLES IN THIS TOPIC</a>
       </div>
     </div>
   </div>
