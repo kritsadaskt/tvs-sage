@@ -14,5 +14,6 @@
   @include('sections/v3/editors-pick')
   @include('sections/v3/articles')
   @include('sections/v3/videos')
+  @include('sections/v3/dataviz-listed')
   @include('sections/v3/infographic')
 @endsection
