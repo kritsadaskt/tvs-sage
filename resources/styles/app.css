@@ -43,7 +43,7 @@ body.logged-in {
 
 #home_slider {
   .swiper-slide-active {
-    transform: scale(2.5);
+    transform: scale(2);
     z-index: 1;
     box-shadow: 0 2px 3px rgba(0, 0, 0, .5);
     @media screen and (min-width: 820px) {
@@ -183,6 +183,29 @@ body.logged-in {
           content: 'PLAYING';
           @apply bg-tvs-orange-1/70 flex items-center justify-center text-white;
         }
+      }
+    }
+  }
+}
+
+footer {
+  .footer-menu {
+    .menu-item {
+      a {
+        transition: all 200ms ease-out;
+        &:hover {
+          @apply text-tvs-orange-1;
+          transform: scale(1.3);
+          transition: all 300ms ease-in;
+        }
+      }
+    }
+  }
+  .social-btn-group {
+    a {
+      @apply transition-all duration-300;
+      &:hover {
+        @apply scale-125 transition-all duration-500;
       }
     }
   }

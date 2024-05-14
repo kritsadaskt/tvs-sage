@@ -6,9 +6,9 @@
 @endphp
 
 <div id="dataviz_highlight" class="min-h-fit bg-white pt-20 pb-11">
-  <div class="container flex justify-between items-center mb-12">
+  <div class="container flex flex-col lg:flex-row justify-between items-start gap-5 lg:gap-0 lg:items-center lg:mb-12 px-4 lg:px-0 pb-5 lg:pb-0">
     <h2 class="text-[32px] font-semibold border-l-[19px] border-tvs-orange-1 pl-3">DATA VIZ HIGHLIGHT</h2>
-    <ul class="dataviz-highlight-nav flex gap-3">
+    <ul class="dataviz-highlight-nav flex gap-2 lg:gap-3 flex-wrap">
       <li><button class="tablinks active" onclick="changeDataVizHighlight(event, 'all')">All</button></li>
       @foreach ($dataviz_listed as $nav_item)
         @php
@@ -18,9 +18,9 @@
       @endforeach
     </ul>
   </div>
-  <div class="container">
+  <div class="container px-4 lg:px-0">
     <div id="all_tab_content" class="tabcontent" style="display: block;">
-      <div class="grid grid-cols-4 gap-4">
+      <div class="grid grid-col-1 lg:grid-cols-4 gap-4">
       @php
         $all_items = new WP_Query(array('post_type' => 'post', 'posts_per_page' => 8));
         $posts = $all_items->posts;
@@ -41,7 +41,7 @@
           $cat_posts = $cat_items->posts;
         @endphp
         @if (count($cat_posts) > 0)
-          <div class="grid grid-cols-4 gap-4">
+          <div class="grid grid-cols-1 lg:grid-cols-4 gap-4">
             @foreach ($cat_posts as $post)
               <div class="dataviz-highlight-card aspect-video bg-cover" style="background-image: url({{ get_the_post_thumbnail_url($post->ID) }})">
                 <h4>{!! $post->post_title !!}</h4>

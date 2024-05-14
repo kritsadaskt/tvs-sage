@@ -1,10 +1,10 @@
 @php
 $editors_pick = get_field('editors_pick', get_the_ID());
 @endphp
-<div id="editor_pick" class="min-h-[765px] relative flex items-end">
+<div id="editor_pick" class="min-h-[765px] relative flex items-end overflow-hidden">
   <div id="editors_pick_backdrop" class="h-full w-full absolute bg-cover bg-center">
     @if ($editors_pick['video'] !== '')
-    <video autoplay muted loop class="w-full">
+    <video autoplay muted loop class="w-full scale-[5] md:scale-100">
       <source src="{{ $editors_pick['video'] }}" type="video/mp4">
     </video>
     @endif

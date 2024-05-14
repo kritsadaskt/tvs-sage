@@ -75,3 +75,12 @@ function get_post_cat(Int $id) {
 
   return $r;
 }
+
+function add_footer_menu_location() {
+  register_nav_menus((
+    array(
+      'footer_menu' => __('Footer Menu')
+    )
+    ));
+}
+add_action('after_setup_theme', 'add_footer_menu_location');
