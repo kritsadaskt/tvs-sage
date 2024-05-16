@@ -6,10 +6,10 @@
     return $r[1];
   }
 @endphp
-<div id="videos" class="min-h-fit bg-black pt-20 pb-16">
-  <div class="container flex justify-between items-center mb-12">
-    <h2 class="text-[32px] text-white font-semibold border-l-[19px] border-tvs-orange-1 pl-3">VIDEOS</h2>
-    <a href="" class="text-white flex gap-2 items-center">
+<div id="videos" class="min-h-fit bg-black px-11 lg:px-10 xl:px-0 pt-20 pb-16">
+  <div class="container flex justify-between items-center mb-5 lg:mb-12">
+    <h2 class="text-[24px] md:text-[32px] text-white font-semibold border-l-[19px] border-tvs-orange-1 pl-3">VIDEOS</h2>
+    <a href="" class="text-white text-base flex gap-2 items-center">
       SEE ALL VIDEOS
       <svg width="14" height="13" viewBox="0 0 14 13" fill="none" xmlns="http://www.w3.org/2000/svg">
         <path d="M13.75 7.0625L8.25 12.3125C7.9375 12.5938 7.46875 12.5938 7.1875 12.2812C6.90625 11.9688 6.90625 11.5 7.21875 11.2188L11.375 7.25H0.75C0.3125 7.25 0 6.9375 0 6.5C0 6.09375 0.3125 5.75 0.75 5.75H11.375L7.21875 1.8125C6.90625 1.53125 6.90625 1.03125 7.1875 0.75C7.46875 0.4375 7.96875 0.4375 8.25 0.71875L13.75 5.96875C13.9062 6.125 14 6.3125 14 6.5C14 6.71875 13.9062 6.90625 13.75 7.0625Z" fill="#ffffff"/>
@@ -21,18 +21,24 @@
       @php
         $fst = $vdo_links[0];
       @endphp
-      <iframe class="w-full aspect-video mb-4" src="https://www.youtube.com/embed/{{ get_vdo_id($fst['video_url']) }}"></iframe>
-      <h4 id="clip_title" class="text-white text-[24px] mb-1">{{ $fst['title'] }}</h4>
-      <p id="clip_desc" class="text-tvs-light-gray-2 text-[18px]">{{ $fst['description'] }}</p>
+      <iframe class="w-full aspect-video lg:mb-4" src="https://www.youtube.com/embed/{{ get_vdo_id($fst['video_url']) }}"></iframe>
+      <div class="content-box hidden lg:block">
+        <h4 class="clip_title text-white text-[18px] lg:text-[24px] mb-1">{{ $fst['title'] }}</h4>
+        <p class="clip_desc text-tvs-light-gray-2 text-base lg:text-[18px]">{{ $fst['description'] }}</p>
+      </div>
     </div>
-    <div id="clips_listed" class="md:w-3/12 flex flex-col gap-4 overflow-scroll">
+    <div id="clips_listed" class="w-full h-full md:w-3/12 flex md:flex-col gap-4 overflow-scroll">
       @foreach ($vdo_links as $key=>$vdo)
-        <div class="clip-thumb w-full min-h-[177px] bg-cover vdo-{{$key+1}} {{ $key+1 == 1 ? 'playing':'' }} self-start" style="background-image: url({{ $vdo['thumbnail'] }})"></div>
+        <div class="clip-thumb vdo-{{$key+1}} {{ $key+1 == 1 ? 'playing':'' }} bg-cover w-[130px] lg:w-full aspect-video lg:min-h-[130px] xl:min-h-[180px] flex-none" style="background-image: url({{ $vdo['thumbnail'] }})"></div>
       @endforeach
+    </div>
+    <div class="content-box block lg:hidden">
+      <h4 class="clip_title text-white text-[18px] lg:text-[24px] mb-1">{{ $fst['title'] }}</h4>
+      <p class="clip_desc text-tvs-light-gray-2 text-base lg:text-[18px]">{{ $fst['description'] }}</p>
     </div>
   </div>
   <div id="reels" class="container">
-    <h2 class="text-[28px] text-white font-medium mb-7">SHORTS</h2>
+    <h2 class="text-[22px] lg:text-[28px] text-white font-medium mb-7">SHORTS</h2>
     <div id="reel_slider" class="swiper">
       <div class="swiper-wrapper">
         @foreach ($reels as $reel)

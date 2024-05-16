@@ -36,17 +36,38 @@ domReady(async () => {
   });
 
   const infographic_slider = new Swiper('#infos_slider', {
-    slidesPerView: 5,
+    effect: 'coverflow',
     centeredSlides: true,
+    slidesPerView: 1.2,
     loop: true,
-    allowTouchMove: false,
-    //loopAdditionalSlides: 10,
-    // speed: 800,
-    spaceBetween: 10,
-    navigation: {
-      nextEl: ".swiper-button-next.info-next",
-      prevEl: ".swiper-button-prev.info-prev",
+    coverflowEffect: {
+      rotate: 0,
+      stretch: 100,
+      depth: 100,
+      modifier: 2,
+      slideShadows: true,
     },
+    pagination: {
+      el: ".swiper-pagination.info-navi",
+    },
+    breakpoints: {
+      1024: {
+        slidesPerView: 3,
+      }
+    }
+    // slidesPerView: 1,
+    // centeredSlides: true,
+    // loop: true,
+    // breakpoints: {
+    //   1024: {
+    //     slidesPerView: 5,
+    //     spaceBetween: 10,
+    //     navigation: {
+    //       nextEl: ".swiper-button-next.info-next",
+    //       prevEl: ".swiper-button-prev.info-prev",
+    //     },
+    //   }
+    // }
   });
 
   //console.log(homepage_top_slider.querySelector('.swiper-slide-active').dataset.backdrop);
@@ -75,12 +96,32 @@ domReady(async () => {
   const mainClipPlayer = document.getElementById('clip_player');
   const clipPlaylisted = document.getElementById('clips_listed');
 
-  clipPlaylisted.style.height = mainClipPlayer.offsetHeight+'px';
-  //console.log(mainClipPlayer.offsetHeight);
+  if (window.innerWidth >= 992) {
+    clipPlaylisted.style.height = mainClipPlayer.offsetHeight+'px';
+    //console.log(mainClipPlayer.offsetHeight);
+  }
+
+  // const video_thumbs_slider = new Swiper('#clips_listed', {
+  //   slidesPerView: 2.2,
+  //   spaceBetween: 8,
+  //   breakpoints: {
+  //     1024: {
+  //       slidesPerView: 3.5,
+  //       spaceBetween: 10,
+  //       direction: "vertical",
+  //     }
+  //   }
+  // })
 
   const reels_slider = new Swiper('#reel_slider', {
-    slidesPerView: 4,
-    spaceBetween: 20,
+    slidesPerView: 2.5,
+    spaceBetween: 10,
+    breakpoints: {
+      1024: {
+        slidesPerView: 4.5,
+        spaceBetween: 20,
+      }
+    }
   })
 
   const editors_pick_slider = new Swiper('#editors_pick_slider', {

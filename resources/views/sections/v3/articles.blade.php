@@ -2,9 +2,9 @@
   $articles = new WP_Query(array('post_type'=>'post', 'posts_per_page'=>6));
   $hl_a = get_field('highlight_articles', get_the_ID());
 @endphp
-<div id="lastest_articles" class="min-h-screen bg-white px-4 md:px-0 py-20 relative">
-  <div class="container flex justify-between items-center mb-12">
-    <h2 class="text-[32px] font-semibold border-l-[19px] border-tvs-orange-1 pl-3">ARTICLES</h2>
+<div id="lastest_articles" class="min-h-screen bg-white px-4 md:px-0 py-14 xl:py-20 relative">
+  <div class="container flex justify-between items-center mb-10 xl:mb-12">
+    <h2 class="text-[24px] xl:text-[32px] font-semibold border-l-[19px] border-tvs-orange-1 pl-3">ARTICLES</h2>
     <a href="" class="text-tvs-gray-1 flex gap-2 items-center">
       SEE ALL ARTICLES
       <svg width="14" height="13" viewBox="0 0 14 13" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -12,7 +12,7 @@
         </svg>        
     </a>
   </div>
-  <div class="container flex flex-col md:grid md:grid-cols-3 gap-3 lg:gap-5 mb-10">
+  <div class="container flex flex-col md:grid md:grid-cols-3 gap-3 lg:gap-5 lg:mb-10">
     @if ($articles->have_posts())
       @while ($articles->have_posts())
         @php($articles->the_post())
@@ -24,16 +24,16 @@
       @endwhile
     @endif
     @php(wp_reset_postdata())
-    <div class="view-all-btn-wrapper text-center col-span-3 my-4">
-      <a href="" class="view-all-articles uppercase text-white bg-tvs-orange-1 rounded-3xl px-10 py-2 inline-block hover:scale-110 transition-all duration-300 ease-in-out">SEE MORE</a>
+    <div class="view-all-btn-wrapper text-center col-span-3 mt-3 mb-6 lg:my-4">
+      <a href="" class="view-all-articles uppercase text-white bg-tvs-orange-1 rounded-3xl py-2 px-10 inline-block hover:scale-110 transition-all duration-300 ease-in-out">SEE MORE</a>
     </div>
   </div>
-  <div id="highlight_articles" class="container border border-gray-200 pt-20 px-10 pb-11 relative overflow-hidden">
+  <div id="highlight_articles" class="container border border-gray-200 pt-[130px] px-2 pb-14 lg:pt-20 lg:px-10 lg:pb-11 relative overflow-hidden">
     <div class="hl_a-backdrop w-full h-full top-0 left-0 absolute grayscale" style="background-image: url('{{$hl_a['topic_background_image']}}')"></div>
     <div class="hl-content-wrapper relative">
-      <h4 class="text-tvs-orange-1 font-medium">Highlight Articles :</h4>
-      <h3 class="text-black font-semibold text-[30px] mb-5">{{ $hl_a['topic_title'] }}</h3>
-      <div class="highlight-listed grid grid-cols-3 gap-4 mb-8">
+      <h4 class="text-tvs-orange-1 font-medium text-[20px] text-center lg:text-start">Highlight Articles :</h4>
+      <h3 class="text-black font-semibold text-[24px] text-center lg:text-start lg:text-[30px] mb-5 w-4/5 mx-auto lg:w-full">{{ $hl_a['topic_title'] }}</h3>
+      <div class="highlight-listed grid lg:grid-cols-3 gap-4 mb-8">
         @foreach ($hl_a['article_listed'] as $item)
           <a href="{{ get_the_permalink($item) }}">
             <img src="{{ get_the_post_thumbnail_url($item) }}" alt="">
