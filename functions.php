@@ -88,4 +88,4 @@ add_action('after_setup_theme', 'add_footer_menu_location');
 function loadFontAwesome() {
   wp_enqueue_script('FontAwesome', 'https://kit.fontawesome.com/7c1bfc6a69.js');
 }
-add_action('after_setup_theme', 'loadFontAwesome');
+add_action('wp_enqueue_scripts', 'loadFontAwesome');
