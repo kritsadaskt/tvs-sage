@@ -52,11 +52,9 @@ header {
 }
 
 #home_slider_section {
+  padding-bottom: 80px;
   .home-slide-pagination {
-    bottom: 35px;
-    @media screen and (min-width: 1921px) {
-      bottom: 0;
-    }
+    bottom: 20px;
     span {
       border-radius: 3px;
       width: 30px;
