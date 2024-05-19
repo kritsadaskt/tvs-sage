@@ -1,13 +1,13 @@
 @php
 $hero_slides = get_field('hero_banner', get_the_ID());
 @endphp
-<div id="home_slider_section" class="md:h-1/2 lg:h-[90vh] relative bg-black flex items-center pt-10 pb-5">
+<div id="home_slider_section" class="md:h-1/2 lg:h-auto 2xl:h-screen relative bg-black flex items-center pt-10 pb-5">
   <div id="slide_backdrop" class="absolute w-full h-full overflow-hidden top-0">
     <div class="top-layer absolute w-full h-full z-[1]"></div>
     <div class="bottom-layer bg-cover w-full h-full blur-sm grayscale transition ease-linear duration-500"></div>
   </div>
   <div class="container">
-    <div id="home_slider" class="swiper py-28 px-2 lg:py-[8rem] lg:px-0">
+    <div id="home_slider" class="swiper py-28 px-2 lg:pt-[10rem] lg:pb-0 lg:px-0">
       <div class="swiper-wrapper">
         @foreach ($hero_slides as $slide)
           @php
@@ -20,7 +20,7 @@ $hero_slides = get_field('hero_banner', get_the_ID());
         @endforeach
       </div>
     </div>
-    <div class="description w-3/5 lg:w-11/12 mx-auto md:w-3/5 text-white text-center flex flex-col gap-[3px] z-[1] relative transition ease-out duration-500">
+    <div class="description w-3/5 lg:w-11/12 mx-auto md:w-3/5 text-white text-center flex flex-col gap-[3px] z-[1] relative transition ease-out duration-500 lg:mb-16">
       <span class="text-white bg-tvs-orange-1 text-[12px] self-center font-light px-[10px] py-[4px] leading-none rounded-[25px]">HIGHLIGHT</span>
       <h3 id="hero_title" class="text-[28px] leading-tight lg:text-[32px] font-medium"></h3>
       <p id="hero_desc" class="text-[12px] lg:text-[14px] font-[300]"></p>

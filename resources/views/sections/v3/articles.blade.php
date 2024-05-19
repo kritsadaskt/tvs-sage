@@ -2,7 +2,7 @@
   $articles = new WP_Query(array('post_type'=>'post', 'posts_per_page'=>6));
   $hl_a = get_field('highlight_articles', get_the_ID());
 @endphp
-<div id="lastest_articles" class="min-h-screen bg-white px-4 md:px-0 py-14 xl:py-20 relative">
+<div id="lastest_articles" class="min-h-screen bg-white px-4 xl:px-0 py-14 xl:py-20 relative">
   <div class="container flex justify-between items-center mb-10 xl:mb-12">
     <h2 class="text-[24px] xl:text-[32px] font-semibold border-l-[19px] border-tvs-orange-1 pl-3">ARTICLES</h2>
     <a href="" class="text-tvs-gray-1 flex gap-2 items-center">

@@ -14,7 +14,10 @@
 
 body.logged-in {
   header, #right_sidebar, #left_sidebar {
-    top: 32px;
+    top: 46px;
+    @media screen and (min-width: 1024px) {
+      top: 32px;
+    }
   }
 }
 
@@ -22,9 +25,38 @@ body.logged-in {
   @apply hover:scale-110 transition-all duration-300 ease-in-out;
 }
 
+.pagination {
+  display: flex;
+  a, span {
+    @apply px-4 py-2 border-l border-t border-b border-[#959595] font-medium;
+    &:hover {
+      @apply bg-tvs-orange-1 transition-all duration-500 ease-in-out;
+    }
+    &:first-child {
+      border-top-left-radius: 6px;
+      border-bottom-left-radius: 6px;
+    }
+    &:last-child {
+      @apply border-r border-[#959595] rounded-tr-[6px] rounded-br-[6px];
+    }
+  }
+  .current {
+    @apply bg-tvs-orange-1;
+  }
+}
+
+header {
+  &.mini {
+    @apply bg-gradient-to-b from-black to-transparent;
+  }
+}
+
 #home_slider_section {
   .home-slide-pagination {
     bottom: 35px;
+    @media screen and (min-width: 1921px) {
+      bottom: 0;
+    }
     span {
       border-radius: 3px;
       width: 30px;

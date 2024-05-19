@@ -2,7 +2,7 @@
   $infos = get_field('infographics', get_the_ID());
 @endphp
 
-<div id="infographic" class="min-h-fit bg-white pt-[40px] lg:pt-20 pb-7">
+<div id="infographic" class="min-h-fit bg-white pt-[40px] lg:pt-20 pb-7 px-4 xl:px-0">
   <div class="container flex flex-col lg:flex-row justify-between lg:items-center mb-10 px-5 lg:px-0 gap-5 lg:gap-0">
     <h2 class="text-[28px] lg:text-[32px] font-semibold border-l-[19px] border-tvs-orange-1 pl-3">INFOGRAPHICS</h2>
     <a href="" class="text-tvs-gray-2 flex gap-2 items-center self-end">
@@ -14,7 +14,7 @@
   </div>
   <div class="container flex-col-reverse md:flex-row flex gap-5">
     <div id="infos_slides_wrapper" class="w-full relative">
-      <div id="infos_slider" class="swiper w-10/12 mx-auto pt-0 pb-14 lg:py-32">
+      <div id="infos_slider" class="swiper w-10/12 mx-auto pt-0 pb-14 lg:py-22">
         <div class="swiper-wrapper">
           @foreach ($infos as $item)
             <a title="" class="swiper-slide">

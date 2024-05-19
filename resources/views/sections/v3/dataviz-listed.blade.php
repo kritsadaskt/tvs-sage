@@ -5,7 +5,7 @@
   }
 @endphp
 
-<div id="dataviz_highlight" class="min-h-fit bg-white pt-20 pb-11">
+<div id="dataviz_highlight" class="min-h-fit bg-white pt-20 pb-11 px-4 xl:px-0">
   <div class="container flex flex-col lg:flex-row justify-between items-start gap-5 lg:gap-0 lg:items-center lg:mb-12 px-4 lg:px-0 pb-5 lg:pb-0">
     <h2 class="text-[32px] font-semibold border-l-[19px] border-tvs-orange-1 pl-3">DATA VIZ HIGHLIGHT</h2>
     <ul class="dataviz-highlight-nav flex gap-2 lg:gap-3 flex-wrap">

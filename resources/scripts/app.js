@@ -53,52 +53,54 @@ domReady(async () => {
     breakpoints: {
       1024: {
         slidesPerView: 3,
+        effect: 'coverflow',
+        coverflowEffect: {
+          depth: 100,
+          stretch: 0,
+        },
+        centeredSlides: true,
+        loop: true,
+        navigation: {
+          nextEl: ".info-navi .swiper-button-next",
+          prevEl: ".info-navi .swiper-button-prev",
+        },
       }
     }
-    // slidesPerView: 1,
-    // centeredSlides: true,
-    // loop: true,
-    // breakpoints: {
-    //   1024: {
-    //     slidesPerView: 5,
-    //     spaceBetween: 10,
-    //     navigation: {
-    //       nextEl: ".swiper-button-next.info-next",
-    //       prevEl: ".swiper-button-prev.info-prev",
-    //     },
-    //   }
-    // }
   });
 
   //console.log(homepage_top_slider.querySelector('.swiper-slide-active').dataset.backdrop);
 
-  home_slider_section.querySelector('.bottom-layer').style.backgroundImage = 'url("'+homepage_top_slider.querySelector('.swiper-slide-active').dataset.backdrop+'")';
+  if (home_slider_section) {
 
-  document.getElementById('hero_title').innerHTML = homepage_top_slider.querySelector('.swiper-slide-active').dataset.title;
-  document.getElementById('hero_desc').innerHTML = homepage_top_slider.querySelector('.swiper-slide-active').dataset.desc;
+    home_slider_section.querySelector('.bottom-layer').style.backgroundImage = 'url("'+homepage_top_slider.querySelector('.swiper-slide-active').dataset.backdrop+'")';
 
-  home_slider.on('slideChangeTransitionStart', function() {
-    home_slider_section.querySelector('.bottom-layer').style.opacity = 0;
-    home_slider_section.querySelector('.description').style.opacity = 0;
-  });
-
-  home_slider.on('slideChangeTransitionEnd', function() {
-    let current_backdrop_bg = homepage_top_slider.querySelector('.swiper-slide.swiper-slide-active').dataset.backdrop;
-    home_slider_section.querySelector('.bottom-layer').style.backgroundImage = 'url("'+current_backdrop_bg+'")';
     document.getElementById('hero_title').innerHTML = homepage_top_slider.querySelector('.swiper-slide-active').dataset.title;
     document.getElementById('hero_desc').innerHTML = homepage_top_slider.querySelector('.swiper-slide-active').dataset.desc;
-    setTimeout(() => {
-      home_slider_section.querySelector('.bottom-layer').style.opacity = 1;
-      home_slider_section.querySelector('.description').style.opacity = 1;
-    }, 50);
-  });
+
+    home_slider.on('slideChangeTransitionStart', function() {
+      home_slider_section.querySelector('.bottom-layer').style.opacity = 0;
+      home_slider_section.querySelector('.description').style.opacity = 0;
+    });
+
+    home_slider.on('slideChangeTransitionEnd', function() {
+      let current_backdrop_bg = homepage_top_slider.querySelector('.swiper-slide.swiper-slide-active').dataset.backdrop;
+      home_slider_section.querySelector('.bottom-layer').style.backgroundImage = 'url("'+current_backdrop_bg+'")';
+      document.getElementById('hero_title').innerHTML = homepage_top_slider.querySelector('.swiper-slide-active').dataset.title;
+      document.getElementById('hero_desc').innerHTML = homepage_top_slider.querySelector('.swiper-slide-active').dataset.desc;
+      setTimeout(() => {
+        home_slider_section.querySelector('.bottom-layer').style.opacity = 1;
+        home_slider_section.querySelector('.description').style.opacity = 1;
+      }, 50);
+    });
+  }
 
   const mainClipPlayer = document.getElementById('clip_player');
   const clipPlaylisted = document.getElementById('clips_listed');
 
-  if (window.innerWidth >= 992) {
-    clipPlaylisted.style.height = mainClipPlayer.offsetHeight+'px';
-    //console.log(mainClipPlayer.offsetHeight);
+  if (clipPlaylisted) {
+    if (window.innerWidth >= 992) {
+      clipPlaylisted.style.height = mainClipPlayer.offsetHeight+'px';
+    }
   }
 
   // const video_thumbs_slider = new Swiper('#clips_listed', {
@@ -136,18 +138,20 @@ domReady(async () => {
   const about_btn = document.getElementById('about_btn');
   const readout = document.querySelector('.readout');
 
-  about_btn.addEventListener('mousemove', (e) => {
-    const { x,y } = about_btn.getBoundingClientRect();
-    about_btn.style.setProperty("--x", e.clientX - x);
-    about_btn.style.setProperty("--y", e.clientY - y);
-    
-    readout.innerText = `
-    mouse X: ${e.clientX} mouse Y: ${e.clientY}
+  if (about_btn) {
+    about_btn.addEventListener('mousemove', (e) => {
+      const { x,y } = about_btn.getBoundingClientRect();
+      about_btn.style.setProperty("--x", e.clientX - x);
+      about_btn.style.setProperty("--y", e.clientY - y);
+      
+      readout.innerText = `
+      mouse X: ${e.clientX} mouse Y: ${e.clientY}
 
-    left edge: ${parseInt(x)} top edge: ${parseInt(y)}
+      left edge: ${parseInt(x)} top edge: ${parseInt(y)}
 
-    BTN X: ${e.clientX - parseInt(x)} shiny Y: ${e.clientY - parseInt(y)}`;
-  });
+      BTN X: ${e.clientX - parseInt(x)} shiny Y: ${e.clientY - parseInt(y)}`;
+    });
+  }
 
   ScrollTrigger.create({
     trigger: "body", 
