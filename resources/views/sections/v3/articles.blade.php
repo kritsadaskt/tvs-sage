@@ -5,7 +5,7 @@
 <div id="lastest_articles" class="min-h-screen bg-white px-4 xl:px-0 py-14 xl:py-20 relative">
   <div class="container flex justify-between items-center mb-10 xl:mb-12">
     <h2 class="text-[24px] xl:text-[32px] font-semibold border-l-[19px] border-tvs-orange-1 pl-3">ARTICLES</h2>
-    <a href="" class="text-tvs-gray-1 flex gap-2 items-center">
+    <a href="/articles" class="text-tvs-gray-1 flex gap-2 items-center">
       SEE ALL ARTICLES
       <svg width="14" height="13" viewBox="0 0 14 13" fill="none" xmlns="http://www.w3.org/2000/svg">
         <path d="M13.75 7.0625L8.25 12.3125C7.9375 12.5938 7.46875 12.5938 7.1875 12.2812C6.90625 11.9688 6.90625 11.5 7.21875 11.2188L11.375 7.25H0.75C0.3125 7.25 0 6.9375 0 6.5C0 6.09375 0.3125 5.75 0.75 5.75H11.375L7.21875 1.8125C6.90625 1.53125 6.90625 1.03125 7.1875 0.75C7.46875 0.4375 7.96875 0.4375 8.25 0.71875L13.75 5.96875C13.9062 6.125 14 6.3125 14 6.5C14 6.71875 13.9062 6.90625 13.75 7.0625Z" fill="#656565"/>
@@ -25,7 +25,7 @@
     @endif
     @php(wp_reset_postdata())
     <div class="view-all-btn-wrapper text-center col-span-3 mt-3 mb-6 lg:my-4">
-      <a href="" class="view-all-articles uppercase text-white bg-tvs-orange-1 rounded-3xl py-2 px-10 inline-block hover:scale-110 transition-all duration-300 ease-in-out">SEE MORE</a>
+      <a href="/articles" class="view-all-articles uppercase text-white bg-tvs-orange-1 rounded-3xl py-2 px-10 inline-block hover:scale-110 transition-all duration-300 ease-in-out">SEE MORE</a>
     </div>
   </div>
   <div id="highlight_articles" class="container border border-gray-200 pt-[130px] px-2 pb-14 lg:pt-20 lg:px-10 lg:pb-11 relative overflow-hidden">
@@ -41,7 +41,7 @@
         @endforeach
       </div>
       <div class="flex justify-center">
-        <a href="" class="bg-black text-white px-8 py-1 rounded-3xl hover:scale-110 transition-all duration-300 ease-in-out">SEE ALL ARTICLES IN THIS TOPIC</a>
+        <a href="" class="bg-black text-white px-8 py-3 text-sm md:text-base text-center rounded-3xl hover:scale-110 transition-all duration-300 ease-in-out">SEE ALL ARTICLES IN THIS TOPIC</a>
       </div>
     </div>
   </div>

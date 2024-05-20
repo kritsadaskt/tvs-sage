@@ -51,6 +51,10 @@ header.banner {
   }
 }
 
+.elementor-default header {
+  background: linear-gradient(to bottom, rgb(27, 27, 27), transparent);
+}
+
 #menu_pane {
   transform: translateX(110%);
   transition: transform 500ms cubic-bezier(0.65, 0.05, 0.36, 1);

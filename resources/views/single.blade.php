@@ -4,7 +4,7 @@
   @include('sections/v3/header')
   @include('partials/left-sidebar')
   @if(in_array('elementor-default', get_body_class()))
-    <div class="container">
+    <div class="container pt-14 lg:pt-28">
       @include('partials.content-elementor')
     </div>
   @else
