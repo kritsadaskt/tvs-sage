@@ -21,18 +21,18 @@
       @php
         $fst = $vdo_links[0];
       @endphp
-      <iframe class="w-full aspect-video lg:mb-4" src="https://www.youtube.com/embed/{{ get_vdo_id($fst['video_url']) }}"></iframe>
-      <div class="content-box hidden lg:block">
+      <div id="player" data-video-id="{{ get_vdo_id($fst['video_url']) }}" class="w-full h-auto aspect-video lg:mb-8"></div>
+      <div class="content-box hidden lg:block animate__animated">
         <h4 class="clip_title text-white text-[18px] lg:text-[24px] mb-1">{{ $fst['title'] }}</h4>
         <p class="clip_desc text-tvs-light-gray-2 text-base lg:text-[18px]">{{ $fst['description'] }}</p>
       </div>
     </div>
     <div id="clips_listed" class="w-full h-full md:w-3/12 flex md:flex-col gap-4 overflow-scroll">
       @foreach ($vdo_links as $key=>$vdo)
-        <div class="clip-thumb vdo-{{$key+1}} {{ $key+1 == 1 ? 'playing':'' }} bg-cover w-[130px] lg:w-full aspect-video lg:min-h-[130px] xl:min-h-[180px] flex-none" style="background-image: url({{ $vdo['thumbnail'] }})"></div>
+        <div class="clip-thumb cursor-pointer vdo-{{$key+1}} {{ $key+1 == 1 ? 'playing':'' }} bg-cover w-[130px] lg:w-full aspect-video lg:min-h-[130px] xl:min-h-[180px] flex-none" style="background-image: url({{ $vdo['thumbnail'] }})" data-vdo-title="{{ $vdo['title'] }}" data-vdo-desc="{{ $vdo['description'] }}" onclick="set_main_video(this, '{{ get_vdo_id($vdo['video_url']) }}')" ></div>
       @endforeach
     </div>
-    <div class="content-box block lg:hidden">
+    <div class="content-box block lg:hidden animate__animated animate__fadeIn">
       <h4 class="clip_title text-white text-[18px] lg:text-[24px] mb-1">{{ $fst['title'] }}</h4>
       <p class="clip_desc text-tvs-light-gray-2 text-base lg:text-[18px]">{{ $fst['description'] }}</p>
     </div>

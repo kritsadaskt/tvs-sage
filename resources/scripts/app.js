@@ -103,6 +103,69 @@ domReady(async () => {
     }
   }
 
+  // Homepage Video Functions
+
+  var tag = document.createElement('script');
+
+  function loadYTApi() {
+    console.log('loading youtube api..');
+    tag.src = "https://www.youtube.com/iframe_api";
+    var firstScriptTag = document.getElementsByTagName('script')[0];
+    firstScriptTag.parentNode.insertBefore(tag, firstScriptTag);
+  }
+
+  loadYTApi();
+
+  var player;
+  window.onYouTubeIframeAPIReady = function () {
+    var initialVideoId = document.getElementById('player').dataset.videoId;
+    //console.log(initialVideoId);
+    player = new YT.Player('player', {
+      // height: '360',
+      // width: '640',
+      videoId: initialVideoId, // Initial video ID retrieved from data attribute
+      playerVars: {
+        'autoplay': 1, // Autoplay the video
+        'controls': 1, // Show player controls
+        // Add any additional player parameters as needed
+      },
+      events: {
+        'onReady': onPlayerReady,
+        //You can add more event listeners if needed
+      }
+    });
+  }
+
+  window.onPlayerReady = function(event) {
+    console.log('ready');
+    event.target.playVideo();
+  }
+
+  window.set_main_video = function(el, vdo_url) {
+    player.loadVideoById(vdo_url);
+    // Set active thumb
+    let clipThumb = Array.from(el.parentNode.children);
+    clipThumb.forEach((clip)=>{
+      clip.classList.remove('playing');
+    });
+
+    el.classList.add('playing');
+    const playerContent = document.querySelector('#clip_player .content-box');
+    playerContent.classList.add('animate__fadeOut');
+    setTimeout(() => {
+      document.querySelector('.content-box .clip_title').innerHTML = el.dataset.vdoTitle;
+      document.querySelector('.content-box .clip_desc').innerHTML = el.dataset.vdoDesc;
+      setTimeout(()=> {
+        playerContent.classList.remove('animate__fadeOut')
+      }, 400);
+    }, 550);
+    //console.log(el.dataset.vdoTitle);
+    // clipThumb.forEach((sib)=> {
+    //   sib.classList.remove('playing');
+    // });
+    // el.classList.add('playing');
+  }
+
   // const video_thumbs_slider = new Swiper('#clips_listed', {
   //   slidesPerView: 2.2,
   //   spaceBetween: 8,

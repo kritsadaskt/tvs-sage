@@ -220,17 +220,24 @@ header {
 }
 
 #videos {
+  #main_player {
+    .content-box {
+      animation-duration: 200ms;
+    }
+  }
   #clips_listed {
     .clip-thumb {
       position: relative;
       &::after {
-        content: '';
-        @apply absolute w-full h-full;
+        content: 'PLAYING';
+        @apply bg-tvs-orange-1/70 flex items-center justify-center text-white absolute w-full h-full;
+        opacity: 0;
+        transition: opacity 300ms ease-in-out;
       }
       &.playing {
         &::after {
-          content: 'PLAYING';
-          @apply bg-tvs-orange-1/70 flex items-center justify-center text-white;
+          opacity: 1;
+          transition: opacity 320ms ease-in-out;
         }
       }
     }
