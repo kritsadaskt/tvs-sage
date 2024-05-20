@@ -10,12 +10,12 @@ $editors_pick = get_field('editors_pick', get_the_ID());
     @endif
   </div>
   <div class="container flex gap-4 relative flex-col lg:flex-row">
-    <div id="edtors_pick_listed" class="lg:w-7/12 flex flex-col justify-end mb-8">
-      <h2 class="text-[32px] text-white font-semibold border-l-[19px] border-tvs-orange-1 pl-3 mb-5">EDITOR'S PICK</h2>
+    <div id="edtors_pick_listed" class="lg:w-7/12 flex flex-col justify-end lg:mb-8 px-4 lg:px-0">
+      <h2 class="text-[32px] text-white font-semibold border-l-[19px] border-tvs-orange-1 pl-3 lg:mb-5">EDITOR'S PICK</h2>
     </div>
-    <div id="edtors_pick_info" class="lg:w-5/12 pt-12 px-10 pb-10 backdrop-blur-md bg-black/40 min-h-[320px] flex flex-col justify-between animate__animated animate__fadeInUp">
+    <div id="edtors_pick_info" class="lg:w-5/12 px-5 py-8 lg:pt-12 lg:px-10 pb-10 backdrop-blur-md bg-black/40 min-h-[320px] flex flex-col justify-between animate__animated animate__fadeInUp">
       <div class="top-box">
-        <h4 class="text-white font-semibold text-[32px] leading-none mb-4">รถไฟฟ้า.. มหาความเปลี่ยนแปลง</h4>
+        <h4 class="text-white font-semibold text-[28px] lg:text-[32px] leading-none mb-4">รถไฟฟ้า.. มหาความเปลี่ยนแปลง</h4>
         <p class="text-white font-light text-[20px] font-baijam">1 ปีที่ผ่านมา "รถไฟฟ้า" ได้เปลี่ยนโฉมหน้าการคมนาคมของ คนกรุงเทพฯ และปริมณฑลไปอย่างสิ้นเชิง การโดยสารข้าม เมืองกลายเป็นเรื่องพริบตา...</p>
       </div>
       <a href="" class="view-this-project text-white flex gap-4 text-[18px] items-center justify-end">SEE THIS PROJECT 

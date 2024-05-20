@@ -9,6 +9,7 @@ const config = {
       },
       colors: {
         'tvs-orange-1': '#ED3212',
+        'tvs-darkorange-1': '#8f1905',
         'tvs-dark-1': '#181818',
         'tvs-dark-2': '#111111',
         'tvs-gray-1': '#555555',

@@ -1256,6 +1256,11 @@
           "slug": "tvs-orange-1"
         },
         {
+          "color": "#8f1905",
+          "name": "Tvs-darkorange-1",
+          "slug": "tvs-darkorange-1"
+        },
+        {
           "color": "#181818",
           "name": "Tvs-dark-1",
           "slug": "tvs-dark-1"

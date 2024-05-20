@@ -45,16 +45,28 @@ body.logged-in {
   }
 }
 
-header {
+header.banner {
   &.mini {
     @apply bg-gradient-to-b from-black to-transparent;
   }
 }
 
+#menu_pane {
+  transform: translateX(110%);
+  transition: transform 500ms cubic-bezier(0.65, 0.05, 0.36, 1);
+  &.open {
+    transform: translateX(0);
+    transition: transform 600ms cubic-bezier(0.65, 0.05, 0.36, 1);
+  }
+}
+
 #home_slider_section {
-  padding-bottom: 80px;
+  /* padding-bottom: 80px; */
   .home-slide-pagination {
-    bottom: 20px;
+    bottom: 0;
+    @media screen and (min-width: 1024px) {
+      bottom: 20px;
+    }
     span {
       border-radius: 3px;
       width: 30px;
@@ -265,4 +277,9 @@ footer {
       }
     }
   }
+}
+
+#search_panel {
+  display: none;
+  animation-duration: 250ms;
 }

@@ -12,11 +12,30 @@
       </button>
     </div>
   </div>
-  <div class="side-panel hidden">
+  <div id="menu_pane" class="side-panel fixed h-full w-full lg:w-1/3 z-10 top-0 right-0 bg-black/95 px-10 pt-12 flex flex-col gap-11">
+    <button id="close_menu_panel" class="w-11 h-11 self-end"><i class="fa-solid fa-xmark text-white text-3xl"></i></button>
     @if (has_nav_menu('primary_navigation'))
       <nav class="nav-primary" aria-label="{{ wp_get_nav_menu_name('primary_navigation') }}">
-        {!! wp_nav_menu(['theme_location' => 'primary_navigation', 'menu_class' => 'nav', 'echo' => false]) !!}
+        {!! 
+          wp_nav_menu([
+            'theme_location' => 'primary_navigation', 
+            'menu_class' => 'nav text-white flex flex-col text-center gap-5', 
+            'echo' => false
+          ]); 
+        !!}
       </nav>
     @endif
+  </div>
+</div>
+<div id="search_panel" class="fixed top-0 left-0 w-full h-full bg-black/90 z-50 animate__animated animate__fadeIn pt-20 px-12">
+  <button id="close_search_panel"><i class="fa-solid fa-xmark text-white text-5xl"></i></button>
+  <div class="search-form w-full">
+    <form role="search" method="get" class="search-form flex justify-center gap-7 py-10 w-full" action="<?php echo esc_url( home_url( '/' ) ); ?>">
+      <label>
+        <span class="screen-reader-text"><?php echo _x( 'Search for:', 'label' ) ?></span>
+        <input type="search" class="search-field text-3xl bg-transparent text-white border-b border-b-white px-5 py-4 focus:outline-none" placeholder="<?php echo esc_attr_x( 'Search …', 'placeholder' ) ?>" value="<?php echo get_search_query() ?>" name="s" title="<?php echo esc_attr_x( 'Search for:', 'label' ) ?>" />
+      </label>
+      <button type="submit" class="search-submit bg-tvs-orange-1 hover:bg-tvs-darkorange-1 transition-all  text-white px-8 py-1 rounded-md"><?php echo esc_html_x( 'Search', 'submit button' ) ?></button>
+    </form>
   </div>
 </div>

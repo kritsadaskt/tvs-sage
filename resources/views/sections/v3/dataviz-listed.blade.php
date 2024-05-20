@@ -7,14 +7,14 @@
 
 <div id="dataviz_highlight" class="min-h-fit bg-white pt-20 pb-11 px-4 xl:px-0">
   <div class="container flex flex-col lg:flex-row justify-between items-start gap-5 lg:gap-0 lg:items-center lg:mb-12 px-4 lg:px-0 pb-5 lg:pb-0">
-    <h2 class="text-[32px] font-semibold border-l-[19px] border-tvs-orange-1 pl-3">DATA VIZ HIGHLIGHT</h2>
+    <h2 class="text-[28px] lg:text-[32px] font-semibold border-l-[19px] border-tvs-orange-1 pl-3">DATA VIZ HIGHLIGHT</h2>
     <ul class="dataviz-highlight-nav flex gap-2 lg:gap-3 flex-wrap">
-      <li><button class="tablinks active" onclick="changeDataVizHighlight(event, 'all')">All</button></li>
+      <li><button class="tablinks text-sm lg:text-base active" onclick="changeDataVizHighlight(event, 'all')">All</button></li>
       @foreach ($dataviz_listed as $nav_item)
         @php
           $cat = $nav_item['selected_cat'];
         @endphp
-        <li><button class="tablinks" onclick="changeDataVizHighlight(event, '{{ strtolower($nav_item['tab_name']) }}')">{{ $nav_item['tab_name'] }}</button></li>
+        <li><button class="tablinks text-sm lg:text-base" onclick="changeDataVizHighlight(event, '{{ strtolower($nav_item['tab_name']) }}')">{{ $nav_item['tab_name'] }}</button></li>
       @endforeach
     </ul>
   </div>

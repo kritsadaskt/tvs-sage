@@ -260,6 +260,33 @@ domReady(async () => {
     evt.currentTarget.className += " active";
   }
 
+  // Search Button
+  document.querySelector('.search-btn').addEventListener('click', (e) => {
+    document.getElementById('search_panel').style.display = 'block';
+    //document.getElementById('search_panel').classList.add('animate__fadeIn');
+  });
+
+  document.getElementById('close_search_panel').addEventListener('click', (e) => {
+    document.getElementById('search_panel').classList.remove('animate__fadeIn');
+    document.getElementById('search_panel').classList.add('animate__fadeOut');
+    setTimeout(() => {
+      document.getElementById('search_panel').style.display = 'none';
+      document.getElementById('search_panel').classList.remove('animate__fadeOut');
+      document.getElementById('search_panel').classList.add('animate__fadeIn');
+    }, 300);
+  });
+
+  const menu_toggler = document.getElementById('toggle_menu');
+  const menu_pane = document.getElementById('menu_pane');
+  const menu_close = document.getElementById('close_menu_panel');
+
+  menu_toggler.addEventListener('click', (e)=>{
+    menu_pane.classList.toggle('open');
+  });
+  menu_close.addEventListener('click', (e)=>{
+    menu_pane.classList.toggle('open');
+  });
+
 });
 
 /**
