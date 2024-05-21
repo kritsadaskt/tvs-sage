@@ -105,44 +105,8 @@ domReady(async () => {
 
   // Homepage Video Functions
 
-  var tag = document.createElement('script');
-
-  function loadYTApi() {
-    console.log('loading youtube api..');
-    tag.src = "https://www.youtube.com/iframe_api";
-    var firstScriptTag = document.getElementsByTagName('script')[0];
-    firstScriptTag.parentNode.insertBefore(tag, firstScriptTag);
-  }
-
-  loadYTApi();
-
-  var player;
-  window.onYouTubeIframeAPIReady = function () {
-    var initialVideoId = document.getElementById('player').dataset.videoId;
-    //console.log(initialVideoId);
-    player = new YT.Player('player', {
-      // height: '360',
-      // width: '640',
-      videoId: initialVideoId, // Initial video ID retrieved from data attribute
-      playerVars: {
-        'autoplay': 1, // Autoplay the video
-        'controls': 1, // Show player controls
-        // Add any additional player parameters as needed
-      },
-      events: {
-        'onReady': onPlayerReady,
-        //You can add more event listeners if needed
-      }
-    });
-  }
-
-  window.onPlayerReady = function(event) {
-    console.log('ready');
-    event.target.playVideo();
-  }
-
   window.set_main_video = function(el, vdo_url) {
-    player.loadVideoById(vdo_url);
+    player.cueVideoById(vdo_url);
     // Set active thumb
     let clipThumb = Array.from(el.parentNode.children);
     clipThumb.forEach((clip)=>{
@@ -288,6 +252,40 @@ domReady(async () => {
   });
 
 });
+
+var player;
+if (document.getElementById('player')) {
+  var initialVideoId = document.getElementById('player').dataset.videoId;
+}
+window.onYouTubeIframeAPIReady = function () {
+  //console.log('YT api ready');
+  player = new YT.Player('player', {
+    // height: '360',
+    // width: '640',
+    videoId: initialVideoId, // Initial video ID retrieved from data attribute
+    // playerVars: {
+    //   'autoplay': 1, // Autoplay the video
+    //   'controls': 1, // Show player controls
+    //   // Add any additional player parameters as needed
+    // },
+    //events: {
+      //'onReady': onPlayerReady,
+      //You can add more event listeners if needed
+    //}
+  });
+}
+
+// window.onPlayerReady = function(event) {
+//   //console.log('ready');
+//   event.target.playVideo();
+// }
+
+var tag = document.createElement('script');
+//console.log('loading youtube api..');
+tag.src = "https://www.youtube.com/iframe_api";
+var firstScriptTag = document.getElementsByTagName('script')[0];
+firstScriptTag.parentNode.insertBefore(tag, firstScriptTag);
+console.log('YT api loaded.');
 
 /**
  * @see {@link https://webpack.js.org/api/hot-module-replacement/}

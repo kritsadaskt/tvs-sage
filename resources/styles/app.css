@@ -12,7 +12,7 @@
   }
 }
 
-body.logged-in {
+body.admin-bar {
   header, #right_sidebar, #left_sidebar {
     top: 46px;
     @media screen and (min-width: 1024px) {
