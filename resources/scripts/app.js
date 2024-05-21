@@ -166,20 +166,13 @@ domReady(async () => {
   });
 
   const about_btn = document.getElementById('about_btn');
-  const readout = document.querySelector('.readout');
+  //const readout = document.querySelector('.readout');
 
   if (about_btn) {
     about_btn.addEventListener('mousemove', (e) => {
       const { x,y } = about_btn.getBoundingClientRect();
       about_btn.style.setProperty("--x", e.clientX - x);
       about_btn.style.setProperty("--y", e.clientY - y);
-      
-      readout.innerText = `
-      mouse X: ${e.clientX} mouse Y: ${e.clientY}
-
-      left edge: ${parseInt(x)} top edge: ${parseInt(y)}
-
-      BTN X: ${e.clientX - parseInt(x)} shiny Y: ${e.clientY - parseInt(y)}`;
     });
   }
 
