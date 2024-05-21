@@ -76,6 +76,8 @@ domReady(async () => {
 
     document.getElementById('hero_title').innerHTML = homepage_top_slider.querySelector('.swiper-slide-active').dataset.title;
     document.getElementById('hero_desc').innerHTML = homepage_top_slider.querySelector('.swiper-slide-active').dataset.desc;
+    //console.log(homepage_top_slider.querySelector('.swiper-slide-active').dataset.link);
+    document.getElementById('slide_active_link').href = homepage_top_slider.querySelector('.swiper-slide-active').dataset.link;
 
     home_slider.on('slideChangeTransitionStart', function() {
       home_slider_section.querySelector('.bottom-layer').style.opacity = 0;
@@ -87,6 +89,7 @@ domReady(async () => {
       home_slider_section.querySelector('.bottom-layer').style.backgroundImage = 'url("'+current_backdrop_bg+'")';
       document.getElementById('hero_title').innerHTML = homepage_top_slider.querySelector('.swiper-slide-active').dataset.title;
       document.getElementById('hero_desc').innerHTML = homepage_top_slider.querySelector('.swiper-slide-active').dataset.desc;
+      document.getElementById('slide_active_link').href = homepage_top_slider.querySelector('.swiper-slide-active').dataset.link;
       setTimeout(() => {
         home_slider_section.querySelector('.bottom-layer').style.opacity = 1;
         home_slider_section.querySelector('.description').style.opacity = 1;

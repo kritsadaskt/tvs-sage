@@ -13,17 +13,21 @@ $hero_slides = get_field('hero_banner', get_the_ID());
           @php
             $medias = $slide['medias'];
           @endphp
-          <div class="swiper-slide" data-backdrop="{{$medias['desktop_image']}}" data-title="{{$slide['title']}}" data-desc="{{$slide['description']}}">
-            <div class="hidden lg:block aspect-video bg-cover bg-center" style="background-image: url({{$medias['desktop_image']}})"></div>
-            <div class="lg:hidden aspect-square bg-cover bg-center" style="background-image: url({{$medias['mobile_image']}})"></div>
+          <div class="swiper-slide" data-backdrop="{{ $medias['desktop_image'] }}" data-title="{{ $slide['title'] }}" data-desc="{{ $slide['description'] }}" data-link="{{ $slide['link'] }}">
+            <a href="{{ $slide['link'] }}" title="{{ $slide['title'] }}">
+              <div class="aspect-video bg-cover bg-center hidden lg:block" style="background-image: url({{$medias['desktop_image']}})"></div>
+              <div class="aspect-square bg-cover bg-center lg:hidden" style="background-image: url({{$medias['mobile_image']}})"></div>
+            </a>
           </div>
         @endforeach
       </div>
     </div>
     <div class="description w-4/5 mx-auto lg:w-3/5 text-white text-center flex flex-col gap-[3px] z-[1] relative transition ease-out duration-500">
       <span class="text-white bg-tvs-orange-1 text-[12px] self-center font-light px-[10px] py-[4px] leading-none rounded-[25px]">HIGHLIGHT</span>
-      <h3 id="hero_title" class="text-[28px] mb-3 lg:mb-2 leading-tight lg:text-[32px] font-medium"></h3>
-      <p id="hero_desc" class="text-sm font-[300]"></p>
+      <a href="" id="slide_active_link" title="">
+        <h3 id="hero_title" class="text-[28px] mb-3 lg:mb-2 leading-tight lg:text-[32px] font-medium"></h3>
+        <p id="hero_desc" class="text-sm font-[300]"></p>
+      </a>
     </div>
     <div class="flex w-11/12 lg:w-4/5 justify-between mx-auto -mt-8 z-[1] relative">
       <div class="home-slide-btn swiper-button-prev relative after:hidden bg-none md:w-10 left-0 mt-0">
