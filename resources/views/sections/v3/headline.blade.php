@@ -2,11 +2,11 @@
   $cat = get_field('topic_buttons_group', get_the_ID());
   array_push($cat, array('button_title'=>'About Us', 'link'=>'', 'description'=>'Lorem Ipsum vovemcoven.','background_img'=>''));
 @endphp
-<div id="headline" class="bg-black items-center flex px-4 md:px-0 py-16">
+<div id="headline" class="bg-black items-center flex px-4 md:px-0 py-10 xl:py-32 xl:h-screen">
   <div class="container">
     <div class="headline-text-box flex flex-col gap-3 text-center mb-10">
-      <h3 class="text-[36px] md:text-[42px] text-tvs-orange-1 font-semibold">Data Visualization (Data Viz)</h3>
-      <p class="text-white text-center lg:w-4/5 mx-auto">มิติใหม่ของการนำเสนอและสะท้อนประเด็นสำคัญของสังคม จากข้อมูลมหาศาลที่ซับซ้อน <br/>ให้เป็นเรื่องเล่าเข้าใจง่าย ผ่านกระบวนการวิเคราะห์ ออกแบบและบอกเล่าข้อมูล (Data Storytelling) <br/>สู่สายตาผู้ชมในรูปแบบของอินเทอร์แอคทีฟ มัลติมีเดียที่หลากหลาย ภายใต้แบรนด์ "The Visual" ด้วยแนวคิด "Making Data Visible"</p>
+      <h3 class="text-[36px] md:text-[42px] leading-tight text-tvs-orange-1 font-semibold">Data Visualization (Data Viz)</h3>
+      <p class="text-white text-center text-base xl:text-[22px] lg:w-4/5 mx-auto font-light xl:font-normal lg:leading-normal">มิติใหม่ของการนำเสนอและสะท้อนประเด็นสำคัญของสังคม จากข้อมูลมหาศาลที่ซับซ้อน <br/>ให้เป็นเรื่องเล่าเข้าใจง่าย ผ่านกระบวนการวิเคราะห์ ออกแบบและบอกเล่าข้อมูล (Data Storytelling) <br/>สู่สายตาผู้ชมในรูปแบบของอินเทอร์แอคทีฟ มัลติมีเดียที่หลากหลาย ภายใต้แบรนด์ "The Visual" ด้วยแนวคิด "Making Data Visible"</p>
     </div>
     <div id="cat_boxes" class="grid grid-cols-1 md:grid-cols-3 md:grid-rows-2 border-l border-t border-[#484848]">
       @foreach ($cat as $box)

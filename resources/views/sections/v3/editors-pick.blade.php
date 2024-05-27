@@ -1,10 +1,10 @@
 @php
 $editors_pick = get_field('editors_pick', get_the_ID());
 @endphp
-<div id="editor_pick" class="min-h-[765px] relative flex items-end overflow-hidden">
+<div id="editor_pick" class="min-h-[765px] relative flex items-end overflow-hidden bg-black">
   <div id="editors_pick_backdrop" class="h-full w-full absolute bg-cover bg-center">
     @if ($editors_pick['video'] !== '')
-    <video autoplay muted loop class="w-full scale-[5] md:scale-100">
+    <video autoplay muted loop class="w-full scale-[5] md:scale-100 animate__animated">
       <source src="{{ $editors_pick['video'] }}" type="video/mp4">
     </video>
     @endif
@@ -13,9 +13,9 @@ $editors_pick = get_field('editors_pick', get_the_ID());
     <div id="edtors_pick_listed" class="lg:w-7/12 flex flex-col justify-end lg:mb-8 px-4 lg:px-0">
       <h2 class="text-[32px] text-white font-semibold border-l-[19px] border-tvs-orange-1 pl-3 lg:mb-5">EDITOR'S PICK</h2>
     </div>
-    <div id="edtors_pick_info" class="lg:w-5/12 px-5 py-8 lg:pt-12 lg:px-10 pb-10 backdrop-blur-md bg-black/40 min-h-[320px] flex flex-col justify-between animate__animated animate__fadeInUp">
+    <div id="edtors_pick_info" class="lg:w-5/12 px-5 py-8 lg:pt-12 lg:px-10 pb-10 backdrop-blur-md bg-black/40 min-h-[320px] flex flex-col justify-between">
       <div class="top-box">
-        <h4 class="text-white font-semibold text-[28px] lg:text-[32px] leading-none mb-4">{!! get_the_title( $editors_pick['selected_article'] ) !!}</h4>
+        <h4 class="text-white font-semibold text-[28px] lg:text-[32px] leading-tight mb-4">{!! get_the_title( $editors_pick['selected_article'] ) !!}</h4>
         <p class="text-white font-light text-[20px] font-baijam">{!! get_the_excerpt( $editors_pick['selected_article'] ) !!}</p>
       </div>
       <a href="{{ get_the_permalink($editors_pick['selected_article']) }}" class="view-this-project text-white flex gap-4 text-[18px] items-center justify-end">SEE THIS PROJECT 

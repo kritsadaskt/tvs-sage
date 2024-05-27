@@ -22,7 +22,7 @@
     <div id="all_tab_content" class="tabcontent" style="display: block;">
       <div class="grid grid-col-1 lg:grid-cols-4 gap-4">
       @php
-        $all_items = new WP_Query(array('post_type' => 'post', 'posts_per_page' => 8));
+        $all_items = new WP_Query(array('post_type' => 'post', 'post_status' => 'publish', 'posts_per_page' => 8));
         $posts = $all_items->posts;
       @endphp
       @foreach ($posts as $post)
@@ -37,7 +37,7 @@
     @foreach ($dataviz_listed as $cat_box)
       <div id="{{ strtolower($cat_box['tab_name']) }}_tab_content" class="tabcontent">
         @php
-          $cat_items = new WP_Query(array('cat' => $cat_box['selected_cat'], 'posts_per_page' => 8));
+          $cat_items = new WP_Query(array('cat' => $cat_box['selected_cat'], 'posts_per_page' => 8, 'post_status' => 'publish'));
           $cat_posts = $cat_items->posts;
         @endphp
         @if (count($cat_posts) > 0)

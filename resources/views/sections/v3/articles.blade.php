@@ -17,7 +17,8 @@
       @while ($articles->have_posts())
         @php($articles->the_post())
         <a href="{{ get_the_permalink() }}" title="{!! get_the_title() !!}">
-          <div class="lastest-article-box">
+          <div class="lastest-article-box relative group">
+            <div class="overlay absolute top-0 opacity-0 group-hover:opacity-100 transition-all duration-200 ease-linear flex justify-center items-center w-full h-full bg-black/90 px-5 text-center"><p class="text-white">{!! get_the_title() !!}</p></div>
             <div class="post-thumbnail aspect-video bg-cover bg-center md:mb-3 lg:mb-4 border border-tvs-light-gray" style="background-image: url({!! get_the_post_thumbnail_url() !!})"></div>
           </div>
         </a>
@@ -41,7 +42,7 @@
         @endforeach
       </div>
       <div class="flex justify-center">
-        <a href="" class="bg-black text-white px-8 py-3 text-sm md:text-base text-center rounded-3xl hover:scale-110 transition-all duration-300 ease-in-out">SEE ALL ARTICLES IN THIS TOPIC</a>
+        <a href="{{ $hl_a['link_to_topic'] }}" class="bg-black text-white px-8 py-3 text-sm md:text-base text-center rounded-3xl hover:scale-110 transition-all duration-300 ease-in-out">SEE ALL ARTICLES IN THIS TOPIC</a>
       </div>
     </div>
   </div>

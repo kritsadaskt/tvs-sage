@@ -187,14 +187,35 @@ domReady(async () => {
 
   if (window.innerWidth >= 992) {
     ScrollTrigger.create({
-      trigger: "#scroll_1",
-      start: "bottom bottom+=1000",
+      trigger: "#headline",
+      start: "top top",
       //markers: true,
       //end: `bottom+=${headlineH}`,
       pin: true,
       pinSpacing: false,
     });
+
+    // ScrollTrigger.create({
+    //   trigger: "#editor_pick",
+    //   start: "top center",
+    //   markers: true,
+    //   onEnter: () => {
+    //     document.querySelector('#editors_pick_backdrop video').classList.remove('hidden');
+    //     document.querySelector('#editors_pick_backdrop video').classList.add('animate__zoomIn');
+    //   },
+    // });
   }
+
+  let editor_p = gsap.timeline({
+    scrollTrigger: {
+      trigger: '#editor_pick',
+      start: 'top center',
+    }
+  });
+
+  editor_p.from('#editors_pick_backdrop video', { scale: 0.7, opacity: 0, duration: 1 })
+  .from('#edtors_pick_info', { y: 350 })
+  .from('#edtors_pick_listed', { xPercent: -100 });
 
   document.changeDataVizHighlight = function(evt, tabName) {
     //console.log(tabName);

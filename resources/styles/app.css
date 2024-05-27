@@ -21,6 +21,10 @@ body.admin-bar {
   }
 }
 
+img.aligncenter {
+  margin: 0 auto;
+}
+
 .tvs-btn-hover {
   @apply hover:scale-110 transition-all duration-300 ease-in-out;
 }
@@ -69,7 +73,7 @@ header.banner {
   .home-slide-pagination {
     bottom: 0;
     @media screen and (min-width: 1024px) {
-      bottom: 20px;
+      bottom: -20px;
     }
     span {
       border-radius: 3px;
@@ -88,9 +92,14 @@ header.banner {
 }
 
 #home_slider {
+  .swiper-slide {
+    filter: grayscale(0.3);
+    background-color: #fff;
+  }
   .swiper-slide-active {
     transform: scale(2);
     z-index: 1;
+    filter: grayscale(0);
     box-shadow: 0 2px 3px rgba(0, 0, 0, .5);
     @media screen and (min-width: 820px) {
       transform: scale(1.8);
@@ -101,8 +110,10 @@ header.banner {
 
 #slide_backdrop {
   .top-layer {
-    background: rgb(237,50,18);
-    background: radial-gradient(circle, rgba(237,50,18,0.8) 0%, rgba(0,0,0,1) 70%);
+    background: radial-gradient(circle, rgba(237, 50, 18, 0.9) 0%, rgba(0, 0, 0, 1) 80%);
+  }
+  .middle-layer {
+    background: rgba(237,50,18, 0.8);
   }
 }
 
