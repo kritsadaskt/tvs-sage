@@ -226,19 +226,19 @@ header.banner {
     .dataviz-highlight-card {
       @apply relative flex items-center justify-center px-5 cursor-pointer;
       h4 {
-        @apply z-[3] text-white text-center;
+        @apply z-[3] text-white text-center opacity-0;
       }
       &::after {
         content: '';
-        @apply absolute w-full h-full bg-black/60 top-0 opacity-100;
+        @apply absolute w-full h-full bg-black/80 top-0 opacity-0;
       }
       &:hover, &:focus {
         h4 {
-          opacity: 0;
+          opacity: 1;
           transition: opacity 400ms ease-in-out;
         }
         &::after {
-          opacity: 0;
+          opacity: 1;
           transition: all 300ms ease-in-out;
         }
       }

@@ -3,7 +3,7 @@
   $hl_a = get_field('highlight_articles', get_the_ID());
 @endphp
 <div id="lastest_articles" class="min-h-screen bg-white px-4 xl:px-0 py-14 xl:py-20 relative">
-  <div class="container flex justify-between items-center mb-10 xl:mb-12">
+  <div class="section-header container flex justify-between items-center mb-10 xl:mb-12">
     <h2 class="text-[24px] xl:text-[32px] font-semibold border-l-[19px] border-tvs-orange-1 pl-3">ARTICLES</h2>
     <a href="/articles" class="text-tvs-gray-1 flex gap-2 items-center">
       SEE ALL ARTICLES
@@ -36,14 +36,16 @@
       <h3 class="text-black font-semibold text-[24px] text-center lg:text-start lg:text-[30px] mb-5 w-4/5 mx-auto lg:w-full">{{ $hl_a['topic_title'] }}</h3>
       <div class="highlight-listed grid lg:grid-cols-3 gap-4 mb-8">
         @foreach ($hl_a['article_listed'] as $item)
-          <a href="{{ get_the_permalink($item) }}">
+          <a class="highlight-article-item" href="{{ get_the_permalink($item) }}" title="{{ get_the_title($item) }}">
             <img src="{{ get_the_post_thumbnail_url($item) }}" alt="">
           </a>
         @endforeach
       </div>
-      <div class="flex justify-center">
-        <a href="{{ $hl_a['link_to_topic'] }}" class="bg-black text-white px-8 py-3 text-sm md:text-base text-center rounded-3xl hover:scale-110 transition-all duration-300 ease-in-out">SEE ALL ARTICLES IN THIS TOPIC</a>
-      </div>
+      @if(!empty($hl_a['link_to_topic']))
+        <div class="flex justify-center">
+          <a href="{{ $hl_a['link_to_topic'] }}" class="see-this-topic-btn bg-black text-white px-8 py-3 text-sm md:text-base text-center rounded-3xl">SEE ALL ARTICLES IN THIS TOPIC</a>
+        </div>
+      @endif
     </div>
   </div>
 </div>

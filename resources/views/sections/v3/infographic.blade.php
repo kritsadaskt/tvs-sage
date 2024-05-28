@@ -3,7 +3,7 @@
 @endphp
 
 <div id="infographic" class="min-h-fit bg-white pt-[40px] lg:pt-20 pb-7 px-4 xl:px-0">
-  <div class="container flex flex-col lg:flex-row justify-between lg:items-center mb-10 px-5 lg:px-0 gap-5 lg:gap-0">
+  <div class="section-header container flex flex-col lg:flex-row justify-between lg:items-center mb-10 px-5 lg:px-0 gap-5 lg:gap-0">
     <h2 class="text-[28px] lg:text-[32px] font-semibold border-l-[19px] border-tvs-orange-1 pl-3">INFOGRAPHICS</h2>
     <a href="" class="text-tvs-gray-2 flex gap-2 items-center self-end">
       SEE ALL INFOGRAPHICS

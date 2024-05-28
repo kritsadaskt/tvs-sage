@@ -165,6 +165,33 @@ domReady(async () => {
     },
   });
 
+  gsap.utils.toArray('.section-header').forEach(el=>{
+    gsap.from(el, {
+      y: 100,
+      opacity: 0,
+      scrollTrigger: {
+        trigger: el,
+        start: 'top 100%',
+        end: 'bottom top',
+        //markers: true,
+      }
+    })
+  });
+
+  const dataviz_card = gsap.utils.toArray('.dataviz-highlight-card');
+  gsap.from( dataviz_card, {
+    scale: 0.8,
+    opacity: 0,
+    stagger: 0.1,
+    scrollTrigger: {
+      trigger: '#dataviz_highlight',
+      start: 'top center',
+      //end: 'bottom bottom',
+      //markers: true,
+      //scrub: true,
+    }
+  });
+
   const about_btn = document.getElementById('about_btn');
   //const readout = document.querySelector('.readout');
 
@@ -175,13 +202,28 @@ domReady(async () => {
       about_btn.style.setProperty("--y", e.clientY - y);
     });
   }
+  
+  const mainHeaderAnim = gsap.from('header.banner', {
+    yPercent: -100,
+    paused: true,
+    duration: 0.3
+  }).progress(1);
+
+  // const siteLogo = gsap.from('#main .logo', {
+  //   scale: 0.5,
+  //   duration: 0.4,
+  //   scrollTrigger: {
+  //     trigger: 'body',
+  //     start: 'top+=150px top+=50px',
+  //     markers: true,
+  //   }
+  // });
 
   ScrollTrigger.create({
-    trigger: "body", 
-    start: "top -120", 
-    toggleClass: {
-      targets: "header",
-      className: "mini"
+    start: 'top top',
+    end: 'max',
+    onUpdate: (self) => {
+      self.direction === -1 ? mainHeaderAnim.play() : mainHeaderAnim.reverse();
     }
   });
 
@@ -209,13 +251,27 @@ domReady(async () => {
   let editor_p = gsap.timeline({
     scrollTrigger: {
       trigger: '#editor_pick',
-      start: 'top center',
+      start: 'top bottom',
     }
   });
+
+  const hl_listed = document.querySelectorAll('.highlight-listed a');
 
   editor_p.from('#editors_pick_backdrop video', { scale: 0.7, opacity: 0, duration: 1 })
   .from('#edtors_pick_info', { y: 350 })
   .from('#edtors_pick_listed', { xPercent: -100 });
+
+  let hl_articles = gsap.timeline({
+    scrollTrigger: {
+      trigger: '#highlight_articles',
+      start: 'top center+=300px'
+    }
+  });
+
+  hl_articles.from('.hl-content-wrapper h4', { opacity: 0, y: 50 })
+  .from('.hl-content-wrapper h3', { opacity:0 , y: 40 })
+  .from(hl_listed, { opacity: 0, stagger: 0.4, y: 60 })
+  .from('.see-this-topic-btn', { scale: 0.7, opacity: 0 });
 
   document.changeDataVizHighlight = function(evt, tabName) {
     //console.log(tabName);
@@ -270,10 +326,59 @@ domReady(async () => {
 
 });
 
+// Video Section
+
+const vdo_sec = gsap.timeline({
+  scrollTrigger: {
+    trigger: '#videos',
+    start: 'top center'
+  }
+});
+
+
+gsap.from('#clip_player', {
+  opacity: 0,
+  x: -60,
+  delay: 0.3,
+  scrollTrigger: {
+    trigger: '#videos',
+    start: 'top center',
+  }
+});
+
+gsap.from('#clips_listed', {
+  opacity: 0,
+  x: 60,
+  delay: 0.3,
+  scrollTrigger: {
+    trigger: '#videos',
+    start: 'top center',
+  }
+});
+
+const reels = gsap.utils.toArray('#reel_slider .reel-item');
+gsap.from(reels, {
+  opacity: 0,
+  stagger: 0.4,
+  scrollTrigger: {
+    trigger: '#reel_slider',
+    start: 'top bottom'
+  }
+});
+gsap.from('#reels .view-all-btn-wrapper', {
+  opacity: 0,
+  y: 30,
+  scrollTrigger: {
+    trigger: '#videos',
+    start: 'bottom bottom'
+  }
+})
+
 var player;
 if (document.getElementById('player')) {
   var initialVideoId = document.getElementById('player').dataset.videoId;
 }
+
 window.onYouTubeIframeAPIReady = function () {
   //console.log('YT api ready');
   player = new YT.Player('player', {

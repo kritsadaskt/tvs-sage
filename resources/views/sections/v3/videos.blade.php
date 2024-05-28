@@ -7,7 +7,7 @@
   }
 @endphp
 <div id="videos" class="min-h-fit bg-black px-4 xl:px-0 pt-20 pb-16">
-  <div class="container flex justify-between items-center mb-5 lg:mb-12">
+  <div class="section-header container flex justify-between items-center mb-5 lg:mb-12">
     <h2 class="text-[24px] md:text-[32px] text-white font-semibold border-l-[19px] border-tvs-orange-1 pl-3">VIDEOS</h2>
     <a href="" class="text-white text-base flex gap-2 items-center">
       SEE ALL VIDEOS
