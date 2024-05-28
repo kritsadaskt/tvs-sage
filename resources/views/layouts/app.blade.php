@@ -6,7 +6,6 @@
     @php(do_action('get_header'))
     @php(wp_head())
   </head>
-
   <body @php(body_class())>
     @php(wp_body_open())
 
@@ -16,6 +15,8 @@
       </a>
 
       {{-- @include('sections.header') --}}
+      @include('sections/v3/header')
+      @include('partials/left-sidebar')
 
       <main id="main" class="main md:pr-[60px]">
         @yield('content')

@@ -13,288 +13,288 @@ gsap.registerPlugin(ScrollTrigger);
  * Application entrypoint
  */
 domReady(async () => {
-  const home_slider_section = document.getElementById('home_slider_section');
-  const homepage_top_slider = document.getElementById('home_slider');
 
-  const home_slider = new Swiper(homepage_top_slider, {
-    slidesPerView: 3,
-    centeredSlides: true,
-    loop: true,
-    speed: 800,
-    spaceBetween: 20,
-    //modules: [Navigation],
-    navigation: {
-      nextEl: '.home-slide-btn.swiper-button-next',
-      prevEl: '.home-slide-btn.swiper-button-prev',
-    },
-    pagination: {
-      el: ".home-slide-pagination",
-    },
-    // thumbs: {
-    //   swiper: home_thumbnails,
-    // }
-  });
+  // RUN ON HOME PAGE
+  if (document.body.classList.contains('home')) {
+    const home_slider_section = document.getElementById('home_slider_section');
+    const homepage_top_slider = document.getElementById('home_slider');
 
-  const infographic_slider = new Swiper('#infos_slider', {
-    effect: 'coverflow',
-    centeredSlides: true,
-    slidesPerView: 1.2,
-    loop: true,
-    coverflowEffect: {
-      rotate: 0,
-      stretch: 100,
-      depth: 100,
-      modifier: 2,
-      slideShadows: true,
-    },
-    pagination: {
-      el: ".swiper-pagination.info-navi",
-    },
-    breakpoints: {
-      1024: {
-        slidesPerView: 3,
-        effect: 'coverflow',
-        coverflowEffect: {
-          depth: 100,
-          stretch: 0,
-        },
-        centeredSlides: true,
-        loop: true,
-        navigation: {
-          nextEl: ".info-navi .swiper-button-next",
-          prevEl: ".info-navi .swiper-button-prev",
-        },
-      }
-    }
-  });
-
-  //console.log(homepage_top_slider.querySelector('.swiper-slide-active').dataset.backdrop);
-
-  if (home_slider_section) {
-
-    home_slider_section.querySelector('.bottom-layer').style.backgroundImage = 'url("'+homepage_top_slider.querySelector('.swiper-slide-active').dataset.backdrop+'")';
-
-    document.getElementById('hero_title').innerHTML = homepage_top_slider.querySelector('.swiper-slide-active').dataset.title;
-    document.getElementById('hero_desc').innerHTML = homepage_top_slider.querySelector('.swiper-slide-active').dataset.desc;
-    //console.log(homepage_top_slider.querySelector('.swiper-slide-active').dataset.link);
-    document.getElementById('slide_active_link').href = homepage_top_slider.querySelector('.swiper-slide-active').dataset.link;
-
-    home_slider.on('slideChangeTransitionStart', function() {
-      home_slider_section.querySelector('.bottom-layer').style.opacity = 0;
-      home_slider_section.querySelector('.description').style.opacity = 0;
+    const home_slider = new Swiper(homepage_top_slider, {
+      slidesPerView: 3,
+      centeredSlides: true,
+      loop: true,
+      speed: 800,
+      spaceBetween: 20,
+      navigation: {
+        nextEl: '.home-slide-btn.swiper-button-next',
+        prevEl: '.home-slide-btn.swiper-button-prev',
+      },
+      pagination: {
+        el: ".home-slide-pagination",
+      },
     });
 
-    home_slider.on('slideChangeTransitionEnd', function() {
-      let current_backdrop_bg = homepage_top_slider.querySelector('.swiper-slide.swiper-slide-active').dataset.backdrop;
-      home_slider_section.querySelector('.bottom-layer').style.backgroundImage = 'url("'+current_backdrop_bg+'")';
+    const infographic_slider = new Swiper('#infos_slider', {
+      effect: 'coverflow',
+      centeredSlides: true,
+      slidesPerView: 1.2,
+      loop: true,
+      coverflowEffect: {
+        rotate: 0,
+        stretch: 100,
+        depth: 100,
+        modifier: 2,
+        slideShadows: true,
+      },
+      pagination: {
+        el: ".swiper-pagination.info-navi",
+      },
+      breakpoints: {
+        1024: {
+          slidesPerView: 3,
+          effect: 'coverflow',
+          coverflowEffect: {
+            depth: 100,
+            stretch: 0,
+          },
+          centeredSlides: true,
+          loop: true,
+          navigation: {
+            nextEl: ".info-navi .swiper-button-next",
+            prevEl: ".info-navi .swiper-button-prev",
+          },
+        }
+      }
+    });
+
+    if (home_slider_section) {
+
+      home_slider_section.querySelector('.bottom-layer').style.backgroundImage = 'url("'+homepage_top_slider.querySelector('.swiper-slide-active').dataset.backdrop+'")';
+  
       document.getElementById('hero_title').innerHTML = homepage_top_slider.querySelector('.swiper-slide-active').dataset.title;
       document.getElementById('hero_desc').innerHTML = homepage_top_slider.querySelector('.swiper-slide-active').dataset.desc;
+      //console.log(homepage_top_slider.querySelector('.swiper-slide-active').dataset.link);
       document.getElementById('slide_active_link').href = homepage_top_slider.querySelector('.swiper-slide-active').dataset.link;
-      setTimeout(() => {
-        home_slider_section.querySelector('.bottom-layer').style.opacity = 1;
-        home_slider_section.querySelector('.description').style.opacity = 1;
-      }, 50);
-    });
-  }
-
-  const mainClipPlayer = document.getElementById('clip_player');
-  const clipPlaylisted = document.getElementById('clips_listed');
-
-  if (clipPlaylisted) {
-    if (window.innerWidth >= 992) {
-      clipPlaylisted.style.height = mainClipPlayer.offsetHeight+'px';
+  
+      home_slider.on('slideChangeTransitionStart', function() {
+        home_slider_section.querySelector('.bottom-layer').style.opacity = 0;
+        home_slider_section.querySelector('.description').style.opacity = 0;
+      });
+  
+      home_slider.on('slideChangeTransitionEnd', function() {
+        let current_backdrop_bg = homepage_top_slider.querySelector('.swiper-slide.swiper-slide-active').dataset.backdrop;
+        home_slider_section.querySelector('.bottom-layer').style.backgroundImage = 'url("'+current_backdrop_bg+'")';
+        document.getElementById('hero_title').innerHTML = homepage_top_slider.querySelector('.swiper-slide-active').dataset.title;
+        document.getElementById('hero_desc').innerHTML = homepage_top_slider.querySelector('.swiper-slide-active').dataset.desc;
+        document.getElementById('slide_active_link').href = homepage_top_slider.querySelector('.swiper-slide-active').dataset.link;
+        setTimeout(() => {
+          home_slider_section.querySelector('.bottom-layer').style.opacity = 1;
+          home_slider_section.querySelector('.description').style.opacity = 1;
+        }, 50);
+      });
     }
-  }
-
-  // Homepage Video Functions
-
-  window.set_main_video = function(el, vdo_url) {
-    player.cueVideoById(vdo_url);
-    // Set active thumb
-    let clipThumb = Array.from(el.parentNode.children);
-    clipThumb.forEach((clip)=>{
-      clip.classList.remove('playing');
-    });
-
-    el.classList.add('playing');
-    const playerContent = document.querySelector('#clip_player .content-box');
-    playerContent.classList.add('animate__fadeOut');
-    setTimeout(() => {
-      document.querySelector('.content-box .clip_title').innerHTML = el.dataset.vdoTitle;
-      document.querySelector('.content-box .clip_desc').innerHTML = el.dataset.vdoDesc;
-      setTimeout(()=> {
-        playerContent.classList.remove('animate__fadeOut')
-      }, 400);
-    }, 550);
-    //console.log(el.dataset.vdoTitle);
-    // clipThumb.forEach((sib)=> {
-    //   sib.classList.remove('playing');
-    // });
-    // el.classList.add('playing');
-  }
-
-  // const video_thumbs_slider = new Swiper('#clips_listed', {
-  //   slidesPerView: 2.2,
-  //   spaceBetween: 8,
-  //   breakpoints: {
-  //     1024: {
-  //       slidesPerView: 3.5,
-  //       spaceBetween: 10,
-  //       direction: "vertical",
-  //     }
-  //   }
-  // })
-
-  const reels_slider = new Swiper('#reel_slider', {
-    slidesPerView: 2.5,
-    spaceBetween: 10,
-    breakpoints: {
-      1024: {
-        slidesPerView: 4.5,
-        spaceBetween: 20,
+  
+    const mainClipPlayer = document.getElementById('clip_player');
+    const clipPlaylisted = document.getElementById('clips_listed');
+  
+    if (clipPlaylisted) {
+      if (window.innerWidth >= 992) {
+        clipPlaylisted.style.height = mainClipPlayer.offsetHeight+'px';
       }
     }
-  })
 
-  const editors_pick_slider = new Swiper('#editors_pick_slider', {
-    slidesPerView: 4.5,
-    freeMode: true,
-    pagination: {
-      el: "#editors_pick_slider .swiper-pagination",
-      type: "progressbar",
-    },
-  });
+    window.set_main_video = function(el, vdo_url) {
+      player.cueVideoById(vdo_url);
 
-  gsap.utils.toArray('.section-header').forEach(el=>{
-    gsap.from(el, {
-      y: 100,
-      opacity: 0,
-      scrollTrigger: {
-        trigger: el,
-        start: 'top 100%',
-        end: 'bottom top',
-        //markers: true,
+      // Set active thumb
+      let clipThumb = Array.from(el.parentNode.children);
+      clipThumb.forEach((clip)=>{
+        clip.classList.remove('playing');
+      });
+  
+      el.classList.add('playing');
+      const playerContent = document.querySelector('#clip_player .content-box');
+      playerContent.classList.add('animate__fadeOut');
+      setTimeout(() => {
+        document.querySelector('.content-box .clip_title').innerHTML = el.dataset.vdoTitle;
+        document.querySelector('.content-box .clip_desc').innerHTML = el.dataset.vdoDesc;
+        setTimeout(()=> {
+          playerContent.classList.remove('animate__fadeOut')
+        }, 400);
+      }, 550);
+    }
+  
+    const reels_slider = new Swiper('#reel_slider', {
+      slidesPerView: 2.5,
+      spaceBetween: 10,
+      breakpoints: {
+        1024: {
+          slidesPerView: 4.5,
+          spaceBetween: 20,
+        }
       }
     })
-  });
-
-  const dataviz_card = gsap.utils.toArray('.dataviz-highlight-card');
-  gsap.from( dataviz_card, {
-    scale: 0.8,
-    opacity: 0,
-    stagger: 0.1,
-    scrollTrigger: {
-      trigger: '#dataviz_highlight',
-      start: 'top center',
-      //end: 'bottom bottom',
-      //markers: true,
-      //scrub: true,
-    }
-  });
-
-  const about_btn = document.getElementById('about_btn');
-  //const readout = document.querySelector('.readout');
-
-  if (about_btn) {
-    about_btn.addEventListener('mousemove', (e) => {
-      const { x,y } = about_btn.getBoundingClientRect();
-      about_btn.style.setProperty("--x", e.clientX - x);
-      about_btn.style.setProperty("--y", e.clientY - y);
-    });
-  }
   
-  const mainHeaderAnim = gsap.from('header.banner', {
-    yPercent: -100,
-    paused: true,
-    duration: 0.3
-  }).progress(1);
-
-  // const siteLogo = gsap.from('#main .logo', {
-  //   scale: 0.5,
-  //   duration: 0.4,
-  //   scrollTrigger: {
-  //     trigger: 'body',
-  //     start: 'top+=150px top+=50px',
-  //     markers: true,
-  //   }
-  // });
-
-  ScrollTrigger.create({
-    start: 'top top',
-    end: 'max',
-    onUpdate: (self) => {
-      self.direction === -1 ? mainHeaderAnim.play() : mainHeaderAnim.reverse();
+    const editors_pick_slider = new Swiper('#editors_pick_slider', {
+      slidesPerView: 4.5,
+      freeMode: true,
+      pagination: {
+        el: "#editors_pick_slider .swiper-pagination",
+        type: "progressbar",
+      },
+    });
+  
+    gsap.utils.toArray('.section-header').forEach(el=>{
+      gsap.from(el, {
+        y: 100,
+        opacity: 0,
+        scrollTrigger: {
+          trigger: el,
+          start: 'top 100%',
+          end: 'bottom top',
+        }
+      })
+    });
+  
+    const dataviz_card = gsap.utils.toArray('.dataviz-highlight-card');
+    gsap.from( dataviz_card, {
+      scale: 0.8,
+      opacity: 0,
+      stagger: 0.1,
+      scrollTrigger: {
+        trigger: '#dataviz_highlight',
+        start: 'top center',
+      }
+    });
+  
+    const about_btn = document.getElementById('about_btn');
+  
+    if (about_btn) {
+      about_btn.addEventListener('mousemove', (e) => {
+        const { x,y } = about_btn.getBoundingClientRect();
+        about_btn.style.setProperty("--x", e.clientX - x);
+        about_btn.style.setProperty("--y", e.clientY - y);
+      });
     }
-  });
-
-  if (window.innerWidth >= 992) {
+    
+    const mainHeaderAnim = gsap.from('header.banner', {
+      yPercent: -100,
+      paused: true,
+      duration: 0.3
+    }).progress(1);
+  
     ScrollTrigger.create({
-      trigger: "#headline",
-      start: "top top",
-      //markers: true,
-      //end: `bottom+=${headlineH}`,
-      pin: true,
-      pinSpacing: false,
+      start: 'top top',
+      end: 'max',
+      onUpdate: (self) => {
+        self.direction === -1 ? mainHeaderAnim.play() : mainHeaderAnim.reverse();
+      }
+    });
+  
+    if (window.innerWidth >= 992) {
+      ScrollTrigger.create({
+        trigger: "#headline",
+        start: "top top",
+        pin: true,
+        pinSpacing: false,
+      });
+    }
+  
+    let editor_p = gsap.timeline({
+      scrollTrigger: {
+        trigger: '#editor_pick',
+        start: 'top bottom',
+      }
+    });
+  
+    const hl_listed = document.querySelectorAll('.highlight-listed a');
+  
+    editor_p.from('#editors_pick_backdrop video', { scale: 0.7, opacity: 0, duration: 1 })
+    .from('#edtors_pick_info', { y: 350 })
+    .from('#edtors_pick_listed', { xPercent: -100 });
+  
+    let hl_articles = gsap.timeline({
+      scrollTrigger: {
+        trigger: '#highlight_articles',
+        start: 'top center+=300px'
+      }
+    });
+  
+    hl_articles.from('.hl-content-wrapper h4', { opacity: 0, y: 50 })
+    .from('.hl-content-wrapper h3', { opacity:0 , y: 40 })
+    .from(hl_listed, { opacity: 0, stagger: 0.4, y: 60 })
+    .from('.see-this-topic-btn', { scale: 0.7, opacity: 0 });
+  
+    document.changeDataVizHighlight = function(evt, tabName) {
+      //console.log(tabName);
+      // Declare all variables
+      var i, tabcontent, tablinks;
+      var tabName = tabName+'_tab_content';
+      console.log(tabName);
+    
+      // Get all elements with class="tabcontent" and hide them
+      tabcontent = document.getElementsByClassName("tabcontent");
+      for (i = 0; i < tabcontent.length; i++) {
+        tabcontent[i].style.display = "none";
+      }
+    
+      // Get all elements with class="tablinks" and remove the class "active"
+      tablinks = document.getElementsByClassName("tablinks");
+      for (i = 0; i < tablinks.length; i++) {
+        tablinks[i].className = tablinks[i].className.replace(" active", "");
+      }
+    
+      // Show the current tab, and add an "active" class to the button that opened the tab
+      document.getElementById(tabName).style.display = "block";
+      evt.currentTarget.className += " active";
+    }
+
+    // Video Section
+    const vdo_sec = gsap.timeline({
+      scrollTrigger: {
+        trigger: '#videos',
+        start: 'top center'
+      }
     });
 
-    // ScrollTrigger.create({
-    //   trigger: "#editor_pick",
-    //   start: "top center",
-    //   markers: true,
-    //   onEnter: () => {
-    //     document.querySelector('#editors_pick_backdrop video').classList.remove('hidden');
-    //     document.querySelector('#editors_pick_backdrop video').classList.add('animate__zoomIn');
-    //   },
-    // });
-  }
 
-  let editor_p = gsap.timeline({
-    scrollTrigger: {
-      trigger: '#editor_pick',
-      start: 'top bottom',
-    }
-  });
+    gsap.from('#clip_player', {
+      opacity: 0,
+      x: -60,
+      delay: 0.3,
+      scrollTrigger: {
+        trigger: '#videos',
+        start: 'top center',
+      }
+    });
 
-  const hl_listed = document.querySelectorAll('.highlight-listed a');
+    gsap.from('#clips_listed', {
+      opacity: 0,
+      x: 60,
+      delay: 0.3,
+      scrollTrigger: {
+        trigger: '#videos',
+        start: 'top center',
+      }
+    });
 
-  editor_p.from('#editors_pick_backdrop video', { scale: 0.7, opacity: 0, duration: 1 })
-  .from('#edtors_pick_info', { y: 350 })
-  .from('#edtors_pick_listed', { xPercent: -100 });
-
-  let hl_articles = gsap.timeline({
-    scrollTrigger: {
-      trigger: '#highlight_articles',
-      start: 'top center+=300px'
-    }
-  });
-
-  hl_articles.from('.hl-content-wrapper h4', { opacity: 0, y: 50 })
-  .from('.hl-content-wrapper h3', { opacity:0 , y: 40 })
-  .from(hl_listed, { opacity: 0, stagger: 0.4, y: 60 })
-  .from('.see-this-topic-btn', { scale: 0.7, opacity: 0 });
-
-  document.changeDataVizHighlight = function(evt, tabName) {
-    //console.log(tabName);
-    // Declare all variables
-    var i, tabcontent, tablinks;
-    var tabName = tabName+'_tab_content';
-    console.log(tabName);
-  
-    // Get all elements with class="tabcontent" and hide them
-    tabcontent = document.getElementsByClassName("tabcontent");
-    for (i = 0; i < tabcontent.length; i++) {
-      tabcontent[i].style.display = "none";
-    }
-  
-    // Get all elements with class="tablinks" and remove the class "active"
-    tablinks = document.getElementsByClassName("tablinks");
-    for (i = 0; i < tablinks.length; i++) {
-      tablinks[i].className = tablinks[i].className.replace(" active", "");
-    }
-  
-    // Show the current tab, and add an "active" class to the button that opened the tab
-    document.getElementById(tabName).style.display = "block";
-    evt.currentTarget.className += " active";
+    const reels = gsap.utils.toArray('#reel_slider .reel-item');
+    gsap.from(reels, {
+      opacity: 0,
+      stagger: 0.4,
+      scrollTrigger: {
+        trigger: '#reel_slider',
+        start: 'top bottom'
+      }
+    });
+    gsap.from('#reels .view-all-btn-wrapper', {
+      opacity: 0,
+      y: 30,
+      scrollTrigger: {
+        trigger: '#videos',
+        start: 'bottom bottom'
+      }
+    });
   }
 
   // Search Button
@@ -326,88 +326,21 @@ domReady(async () => {
 
 });
 
-// Video Section
-
-const vdo_sec = gsap.timeline({
-  scrollTrigger: {
-    trigger: '#videos',
-    start: 'top center'
-  }
-});
-
-
-gsap.from('#clip_player', {
-  opacity: 0,
-  x: -60,
-  delay: 0.3,
-  scrollTrigger: {
-    trigger: '#videos',
-    start: 'top center',
-  }
-});
-
-gsap.from('#clips_listed', {
-  opacity: 0,
-  x: 60,
-  delay: 0.3,
-  scrollTrigger: {
-    trigger: '#videos',
-    start: 'top center',
-  }
-});
-
-const reels = gsap.utils.toArray('#reel_slider .reel-item');
-gsap.from(reels, {
-  opacity: 0,
-  stagger: 0.4,
-  scrollTrigger: {
-    trigger: '#reel_slider',
-    start: 'top bottom'
-  }
-});
-gsap.from('#reels .view-all-btn-wrapper', {
-  opacity: 0,
-  y: 30,
-  scrollTrigger: {
-    trigger: '#videos',
-    start: 'bottom bottom'
-  }
-})
-
 var player;
 if (document.getElementById('player')) {
   var initialVideoId = document.getElementById('player').dataset.videoId;
 }
 
 window.onYouTubeIframeAPIReady = function () {
-  //console.log('YT api ready');
   player = new YT.Player('player', {
-    // height: '360',
-    // width: '640',
     videoId: initialVideoId, // Initial video ID retrieved from data attribute
-    // playerVars: {
-    //   'autoplay': 1, // Autoplay the video
-    //   'controls': 1, // Show player controls
-    //   // Add any additional player parameters as needed
-    // },
-    //events: {
-      //'onReady': onPlayerReady,
-      //You can add more event listeners if needed
-    //}
   });
 }
 
-// window.onPlayerReady = function(event) {
-//   //console.log('ready');
-//   event.target.playVideo();
-// }
-
 var tag = document.createElement('script');
-//console.log('loading youtube api..');
 tag.src = "https://www.youtube.com/iframe_api";
 var firstScriptTag = document.getElementsByTagName('script')[0];
 firstScriptTag.parentNode.insertBefore(tag, firstScriptTag);
-console.log('YT api loaded.');
 
 /**
  * @see {@link https://webpack.js.org/api/hot-module-replacement/}

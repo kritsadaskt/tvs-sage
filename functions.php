@@ -89,3 +89,12 @@ function loadFontAwesome() {
   wp_enqueue_script('FontAwesome', 'https://kit.fontawesome.com/7c1bfc6a69.js');
 }
 add_action('wp_enqueue_scripts', 'loadFontAwesome');
+
+function is_elementor_page() {
+  // Check if Elementor is active
+  if ( ! did_action( 'elementor/loaded' ) ) {
+    return false;
+  }
+
+  return \Elementor\Plugin::$instance->documents->get_current() !== null;
+}
