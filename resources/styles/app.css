@@ -276,6 +276,12 @@ footer {
     .menu-item {
       a {
         transition: all 200ms ease-out;
+        font-size: 14px;
+        font-weight: 300;
+        @media screen and (min-width: 821px) {
+          font-size: 16px;
+          font-weight: 400;
+        }
         &:hover {
           @apply text-tvs-orange-1;
           transform: scale(1.3);

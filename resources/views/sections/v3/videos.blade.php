@@ -37,7 +37,7 @@
       <p class="clip_desc text-tvs-light-gray-2 text-base lg:text-[18px]">{{ $fst['description'] }}</p>
     </div>
   </div>
-  <div id="reels" class="container">
+  <div id="reels" class="container hidden">
     <h2 class="text-[22px] lg:text-[28px] text-white font-medium mb-7">SHORTS</h2>
     <div id="reel_slider" class="swiper">
       <div class="swiper-wrapper">

@@ -24,14 +24,14 @@
 
   <section id="topic_header" class="min-h-[600px] bg-cover bg-center pb-[70px] flex items-end relative" style="background-image: url({{ get_field('header_bg_img') }})">
     <div class="w-full h-full absolute bg-black/30 top-0"></div>
-    <div class="container relative animate__animated animate__fadeInUp">
-      <h3 class="header-title text-white drop-shadow-md text-[40px] font-semibold mb-3">{{ check_field('header_title') }}</h3>
+    <div class="container relative animate__animated animate__fadeInUp px-4 lg:px-0">
+      <h3 class="header-title text-white drop-shadow-md text-[32px] xl:text-[40px] font-semibold mb-3">{{ check_field('header_title') }}</h3>
       <p class="header-desc text-white text-[24px]">{{ check_field('header_desc') }}</p>
     </div>
   </section>
   <section id="topic_intro" class="h-screen flex justify-center items-center" style="background-color: {{ get_field('intro_bg_color', $pId) }}">
-    <div class="container text-black animate__animated animate__fadeInUp">
-      <div class="w-5/6 flex flex-col gap-[50px] place-items-start">
+    <div class="container text-black animate__animated animate__fadeInUp px-4 lg:px-0">
+      <div class="xl:w-5/6 flex flex-col gap-[50px] place-items-start">
         <div class="intro-header-set font-semibold">
           <h3 class="intro-header text-[40px]">{{ check_field('intro_title') }}</h3>
           <h4 class="intro-subtitle text-[32px]">{{ check_field('intro_sub_title') }}</h4>
@@ -42,7 +42,7 @@
     </div>
   </section>
   <section id="article_listed" class="bg-black py-24">
-    <div class="container">
+    <div class="container px-4 lg:px-0">
       <h2 class="section-title text-[#FFFDE3] font-semibold text-[40px] mb-12">Articles</h2>
       @php
         $article_listed = new WP_Query( array(
@@ -52,7 +52,7 @@
       @endphp
 
       @if ( $article_listed->have_posts() )
-        <div class="articles-listed grid grid-cols-3 gap-5">
+        <div class="articles-listed grid xl:grid-cols-3 gap-5">
           @while ( $article_listed->have_posts() )
             @php($article_listed->the_post())
             <div class="article cursor-pointer">
@@ -72,20 +72,20 @@
       @php(wp_reset_postdata()) 
     </div>
   </section>
-  <section id="videos" class="py-20">
-    <div class="container">
+  <section id="videos" class="py-10 xl:py-20">
+    <div class="container px-4 lg:px-0">
       <h2 class="section-title text-black font-semibold text-[40px] mb-10">Videos</h2>
       <x-videos-players :videos="$videos" />
     </div>
   </section>
 
-  <section id="infographics" class="py-20 bg-black">
-    <div class="container">
+  <section id="infographics" class="pt-20 pb-10 bg-black">
+    <div class="container px-4 lg:px-0">
       <h2 class="section-title text-white font-semibold text-[40px] mb-10">Infographics</h2>
       <div class="columns-2 gap-5 text-white">
         @php($infos = get_field('info_graphic_listed', $pId))
         @foreach ($infos as $info)
-          <a title="" target="_blank" href="{{ $info }}" class="inline-block w-full pt-40 first:pt-0">
+          <a title="" target="_blank" href="{{ $info }}" class="inline-block w-full pt-20 xl:pt-40 first:pt-0">
             <img src="{{ $info }}" alt="">
           </a>
         @endforeach

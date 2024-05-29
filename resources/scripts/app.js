@@ -94,15 +94,6 @@ domReady(async () => {
       });
     }
   
-    const mainClipPlayer = document.getElementById('clip_player');
-    const clipPlaylisted = document.getElementById('clips_listed');
-  
-    if (clipPlaylisted) {
-      if (window.innerWidth >= 992) {
-        clipPlaylisted.style.height = mainClipPlayer.offsetHeight+'px';
-      }
-    }
-  
     const reels_slider = new Swiper('#reel_slider', {
       slidesPerView: 2.5,
       spaceBetween: 10,
@@ -232,26 +223,30 @@ domReady(async () => {
       }
     });
 
+    let mm = gsap.matchMedia();
 
-    gsap.from('#clip_player', {
-      opacity: 0,
-      x: -60,
-      delay: 0.3,
-      scrollTrigger: {
-        trigger: '#videos',
-        start: 'top center',
-      }
-    });
+    mm.add("(min-width: 821px)", () => {
+      gsap.from('#clip_player', {
+        opacity: 0,
+        x: -60,
+        delay: 0.3,
+        scrollTrigger: {
+          trigger: '#videos',
+          start: 'top center',
+        }
+      });
 
-    gsap.from('#clips_listed', {
-      opacity: 0,
-      x: 60,
-      delay: 0.3,
-      scrollTrigger: {
-        trigger: '#videos',
-        start: 'top center',
-      }
-    });
+      gsap.from('#clips_listed', {
+        opacity: 0,
+        x: 60,
+        delay: 0.3,
+        scrollTrigger: {
+          trigger: '#videos',
+          start: 'top center',
+        }
+      });
+
+    })
 
     const reels = gsap.utils.toArray('#reel_slider .reel-item');
     gsap.from(reels, {
@@ -316,6 +311,27 @@ domReady(async () => {
   menu_close.addEventListener('click', (e)=>{
     menu_pane.classList.toggle('open');
   });
+
+  // Lightbox
+  window.toggleLightbox = function(img) {
+    console.log('this should show lightbox with '+img);
+  }
+
+  // let lightbox_links = document.querySelectorAll('a.img-lightbox');
+  // lightbox_links.forEach((link)=> {
+  //   link.addEventListener('click', (el)=>{
+  //     toggleLightbox(el.target.src);
+  //   });
+  // });
+
+  const mainClipPlayer = document.getElementById('clip_player');
+  const clipPlaylisted = document.getElementById('clips_listed');
+  
+  if (clipPlaylisted) {
+    if (window.innerWidth >= 992) {
+      clipPlaylisted.style.height = mainClipPlayer.offsetHeight+'px';
+    }
+  }
 
 });
 

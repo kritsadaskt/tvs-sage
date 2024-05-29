@@ -6,7 +6,7 @@
       </div>
       <div class="flex flex-col-reverse lg:flex-row w-auto xl:w-4/6 gap-10 lg:gap-20 xl-gap-0 justify-between items-center md:items-end lg:items-center">
         @if (has_nav_menu('footer_menu'))
-          {!! wp_nav_menu(['menu' => 'Footer Menu', 'menu_class' => 'footer-menu flex gap-4 md:gap-7']) !!}
+          {!! wp_nav_menu(['menu' => 'Footer Menu', 'menu_class' => 'footer-menu flex gap-4 md:gap-7 flex-wrap']) !!}
         @endif
         <div class="social-btn-group flex gap-4 items-center">
           <a href="" title="Facebook Page"><img src="{{ asset('images/facebook.svg') }}" alt="Facebook Page"></a>
@@ -21,3 +21,9 @@
     <small class="footer-txt">© Thai Public Broadcasting Service. All Rights Reserved 2021</small>
   </div>
 </footer>
+{{-- <div id="lightbox" class="flex fixed bg-black/90 w-full h-full z-[99] top-0 left-0 flex-col justify-center">
+  <div class="container text-right">
+    <button id="close_lightbox" class="text-[32px]"><i class="fa-solid fa-xmark text-white"></i></button>
+  </div>
+  <img src="" alt="">
+</div> --}}

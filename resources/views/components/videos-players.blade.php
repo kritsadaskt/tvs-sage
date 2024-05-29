@@ -3,13 +3,9 @@
     $r = explode('?v=', $l);
     return $r[1];
   }
-  if (isset($theme)) {
-    if ($theme == '') {
-      $theme = 'light';
-    }
-  }
 @endphp
-<div id="main_player" class="container flex flex-col md:flex-row gap-4 mb-10 group theme-{{ $theme }}">
+
+<div id="main_player" class="container flex flex-col md:flex-row gap-4 mb-10 group theme-{{ $theme ?? 'light' }}">
   <div id="clip_player" class="md:w-9/12 h-fit">
     @php
       $fst = $videos[0];
@@ -26,7 +22,7 @@
     @endforeach
   </div>
   <div class="content-box block lg:hidden animate__animated animate__fadeIn">
-    <h4 class="clip_title text-white text-[18px] lg:text-[24px] mb-1">{{ $fst['title'] }}</h4>
+    <h4 class="clip_title text-black xl:text-white text-[18px] lg:text-[24px] mb-1">{{ $fst['title'] }}</h4>
     <p class="clip_desc text-tvs-light-gray-2 text-base lg:text-[18px]">{{ $fst['description'] }}</p>
   </div>
 </div>
