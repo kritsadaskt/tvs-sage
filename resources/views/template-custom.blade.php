@@ -85,7 +85,7 @@
       <div class="columns-2 gap-5 text-white">
         @php($infos = get_field('info_graphic_listed', $pId))
         @foreach ($infos as $info)
-          <a href="" class="inline-block w-full pt-40 first:pt-0">
+          <a title="" target="_blank" href="{{ $info }}" class="inline-block w-full pt-40 first:pt-0">
             <img src="{{ $info }}" alt="">
           </a>
         @endforeach

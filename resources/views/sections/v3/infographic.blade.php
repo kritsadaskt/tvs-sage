@@ -17,7 +17,7 @@
       <div id="infos_slider" class="swiper w-10/12 mx-auto pt-0 pb-14 lg:py-22">
         <div class="swiper-wrapper">
           @foreach ($infos as $item)
-            <a title="" class="swiper-slide">
+            <a title="" target="_blank" href="{{ $item['infographics_image'] }}" class="swiper-slide img-lightbox cursor-pointer">
               <img src="{{$item['infographics_image']}}" alt="" class="info-img">
             </a>
           @endforeach
