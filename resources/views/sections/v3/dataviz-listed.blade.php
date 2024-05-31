@@ -26,9 +26,11 @@
         $posts = $all_items->posts;
       @endphp
       @foreach ($posts as $post)
+      <a title="{!! $post->post_title !!}" href="{{ get_the_permalink($post->ID) }}">
         <div class="dataviz-highlight-card aspect-video bg-cover" style="background-image: url({{ get_the_post_thumbnail_url($post->ID) }})">
           <h4>{!! $post->post_title !!}</h4>
         </div>
+      </a>
       @endforeach
       </div>
     </div>
@@ -43,9 +45,11 @@
         @if (count($cat_posts) > 0)
           <div class="grid grid-cols-1 lg:grid-cols-4 gap-4">
             @foreach ($cat_posts as $post)
+            <a title="{!! $post->post_title !!}" href="{{ get_the_permalink($post->ID) }}">
               <div class="dataviz-highlight-card aspect-video bg-cover" style="background-image: url({{ get_the_post_thumbnail_url($post->ID) }})">
                 <h4>{!! $post->post_title !!}</h4>
               </div>
+            </a>
             @endforeach
           </div>
         @else

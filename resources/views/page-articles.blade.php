@@ -11,8 +11,8 @@
   @endphp
   <section class="page-header-gradient min-h-80 bg-gradient-to-b from-tvs-orange-1 to-black flex justify-center pt-[80px] lg:pt-0">
     <div class="w-full lg:w-3/5 flex flex-col lg:flex-row justify-center gap-5 lg:gap-14 items-center px-4 lg:px-0">
-      <div class="lg:w-1/2 text-right"><h2 class="text-white font-semibold text-5xl lg:text-[64px] uppercase">{{ get_the_title() }}</h2></div>
-      <div class="lg:w-1/2"><p class="text-white text-center lg:text-left leading-tight">Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt ut laoreet dolore magna aliquam erat volutpat.</p></div>
+      <div class="text-center"><h2 class="text-white font-semibold text-5xl lg:text-[64px] uppercase">{{ get_the_title() }}</h2></div>
+      <div class="lg:w-1/2 hidden"><p class="text-white text-center lg:text-left leading-tight">Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt ut laoreet dolore magna aliquam erat volutpat.</p></div>
     </div>
   </section>
   {{-- @dd($highlight_articles)) --}}

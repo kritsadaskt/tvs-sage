@@ -9,16 +9,16 @@
           {!! wp_nav_menu(['menu' => 'Footer Menu', 'menu_class' => 'footer-menu flex gap-4 md:gap-7 flex-wrap']) !!}
         @endif
         <div class="social-btn-group flex gap-4 items-center">
-          <a href="" title="Facebook Page"><img src="{{ asset('images/facebook.svg') }}" alt="Facebook Page"></a>
-          <a href="" title="X (Twitter)"><img src="{{ asset('images/x-twitter.svg') }}" alt="X (Twitter)"></a>
-          <a href="" title="Instagram"><img src="{{ asset('images/instagram.svg') }}" alt="Instagram"></a>
-          <a href="" title="Youtube"><img src="{{ asset('images/youtube.svg') }}" alt="Youtube"></a>
-          <a href="" title="Tiktok"><img src="{{ asset('images/tiktok.svg') }}" alt="Tiktok"></a>
+          <a href="https://www.facebook.com/ThaiPBS" target="_blank" title="Facebook Thai PBS"><img src="{{ asset('images/facebook.svg') }}" alt="Facebook Page"></a>
+          <a href="https://x.com/ThaiPBS" target="_blank" title="X (Twitter)"><img src="{{ asset('images/x-twitter.svg') }}" alt="X (Twitter)"></a>
+          <a href="https://www.instagram.com/thaipbs/" target="_blank" title="Instagram"><img src="{{ asset('images/instagram.svg') }}" alt="Instagram"></a>
+          <a href="https://www.youtube.com/@ThaiPBS" target="_blank" title="YouTube"><img src="{{ asset('images/youtube.svg') }}" alt="Youtube"></a>
+          <a href="https://www.tiktok.com/@ThaiPBS" target="_blank" title="Tiktok"><img src="{{ asset('images/tiktok.svg') }}" alt="Tiktok"></a>
         </div>
       </div>
     </div>
     <hr class="border-t border-[#4C4C4C] mb-5">
-    <small class="footer-txt">© Thai Public Broadcasting Service. All Rights Reserved 2021</small>
+    <small class="footer-txt">© Thai Public Broadcasting Service. All Rights Reserved 2024</small>
   </div>
 </footer>
 {{-- <div id="lightbox" class="flex fixed bg-black/90 w-full h-full z-[99] top-0 left-0 flex-col justify-center">
