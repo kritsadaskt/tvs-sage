@@ -19,8 +19,6 @@
 @endphp
 
 @section('content')
-  @include('sections/v3/header')
-  @include('partials/left-sidebar')
 
   <section id="topic_header" class="min-h-[600px] bg-cover bg-center pb-[70px] flex items-end relative" style="background-image: url({{ get_field('header_bg_img') }})">
     <div class="w-full h-full absolute bg-black/30 top-0"></div>

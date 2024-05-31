@@ -1,8 +1,6 @@
 @extends('layouts.app')
 
 @section('content')
-  @include('sections/v3/header')
-  @include('partials/left-sidebar')
   @include('partials.page-search-header')
 
   <div class="container mb-10">

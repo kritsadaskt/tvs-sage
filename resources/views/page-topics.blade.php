@@ -4,8 +4,6 @@
 @endphp
 
 @section('content')
-  @include('sections/v3/header')
-  @include('partials/left-sidebar')
   <section id="page_header" class="h-[300px] bg-black flex justify-center items-end pb-10">
     <div class="container">
       <h2 class="page-title text-white text-center mb-5 uppercase text-[46px] font-semibold">Topics</h2>

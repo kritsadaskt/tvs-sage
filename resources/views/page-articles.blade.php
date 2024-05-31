@@ -1,8 +1,6 @@
 @extends('layouts.app')
 
 @section('content')
-  @include('sections/v3/header')
-  @include('partials/right-sidebar')
   @php
   $featured_item = get_field('featured_post', get_the_ID());
   $f_id = $featured_item->ID;
