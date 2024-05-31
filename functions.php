@@ -89,3 +89,13 @@ function loadFontAwesome() {
   wp_enqueue_script('FontAwesome', 'https://kit.fontawesome.com/7c1bfc6a69.js');
 }
 add_action('wp_enqueue_scripts', 'loadFontAwesome');
+
+function wpdocs_excerpt_more( $more ) {
+  return '... <a href="'. get_the_permalink() .'" title="'. get_the_title() .'" class="font-semibold text-tvs-orange-1 text-base">Read More</a>';
+}
+add_filter( 'excerpt_more', 'wpdocs_excerpt_more' );
+
+function wpdocs_custom_excerpt_length( $length ) {
+	return 100;
+}
+add_filter( 'excerpt_length', 'wpdocs_custom_excerpt_length', 999 );

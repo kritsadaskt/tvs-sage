@@ -1,14 +1,14 @@
-<article @php(post_class())>
-  <div class="post-thumbnail aspect-video w-full h-auto bg-cover mb-5" style="background-image: url({{ get_the_post_thumbnail_url() }})"></div>
-  <header>
-    <h4 class="entry-title text-[20px] font-medium mb-3 leading-tight">
+<article class="post-{{ get_the_ID() }} mb-5">
+  <div class="post-thumbnail aspect-video w-full h-auto bg-cover mb-3" style="background-image: url({{ get_the_post_thumbnail_url() }})">
+  </div>
+  <div class="mb-2">
+    <h4 class="entry-title text-[20px] font-medium leading-tight">
       <a href="{{ get_permalink() }}">
         {!! $title !!}
       </a>
     </h4>
-  </header>
-
-  <div class="entry-summary font-baijam">
+  </div>
+  <div class="entry-summary font-baijam text-sm">
     @php(the_excerpt())
   </div>
 </article>
