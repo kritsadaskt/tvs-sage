@@ -1,6 +1,6 @@
 {{--
   Template Name: The Visual Full-Width
-  Template Post Type: post
+  Template Post Type: post, page
 --}}
 
 @extends('layouts.app')

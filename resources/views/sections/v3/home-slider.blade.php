@@ -1,7 +1,7 @@
 @php
 $hero_slides = get_field('hero_banner', get_the_ID());
 @endphp
-<div id="home_slider_section" class="md:h-1/2 lg:h-auto 2xl:h-screen relative bg-black flex items-center pt-10 lg:pb-8 pb-10 xl:min-h-[775px]">
+<div id="home_slider_section" class="md:h-1/2 lg:h-auto 2xl:h-screen relative bg-black flex items-center pt-10 pb-10 lg:pb-16 xl:min-h-[775px]">
   <div id="slide_backdrop" class="absolute w-full h-full overflow-hidden top-0">
     <div class="top-layer absolute w-full h-full z-[1]"></div>
     <div class="bottom-layer bg-cover w-full h-full blur-sm grayscale transition ease-linear duration-500"></div>
@@ -11,7 +11,7 @@ $hero_slides = get_field('hero_banner', get_the_ID());
     <div class="overlay-right w-1/5 right-0 absolute h-full bg-gradient-to-l from-black to-transparent z-[2]"></div>
   </div>
   <div class="container relative">
-    <div id="home_slider" class="swiper pt-[8.5rem] pb-[6.5rem] px-2 xl:pt-[12rem] xl:pb-[10rem] lg:px-0">
+    <div id="home_slider" class="swiper pt-[8.5rem] pb-[6.5rem] px-2 xl:pt-[12rem] xl:pb-[8rem] lg:px-0">
       <div class="swiper-wrapper">
         @foreach ($hero_slides as $slide)
           @php

@@ -91,7 +91,8 @@ function loadFontAwesome() {
 add_action('wp_enqueue_scripts', 'loadFontAwesome');
 
 function wpdocs_excerpt_more( $more ) {
-  return '... <a href="'. get_the_permalink() .'" title="'. get_the_title() .'" class="font-semibold text-tvs-orange-1 text-base">Read More</a>';
+  // return '... <a href="'. get_the_permalink() .'" title="'. get_the_title() .'" class="font-semibold text-tvs-orange-1 text-base">Read More</a>';
+  return '';
 }
 add_filter( 'excerpt_more', 'wpdocs_excerpt_more' );
 

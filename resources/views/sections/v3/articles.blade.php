@@ -25,7 +25,7 @@
       @endwhile
     @endif
     @php(wp_reset_postdata())
-    <div class="view-all-btn-wrapper text-center col-span-3 mt-3 mb-6 lg:my-4">
+    <div class="view-all-btn-wrapper text-center col-span-3 mt-3 mb-6 lg:my-4 hidden">
       <a href="/articles" class="view-all-articles uppercase text-white bg-tvs-orange-1 rounded-3xl py-2 px-10 inline-block hover:scale-110 transition-all duration-300 ease-in-out">SEE MORE</a>
     </div>
   </div>

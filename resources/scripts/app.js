@@ -212,13 +212,14 @@ domReady(async () => {
       }
     });
 
-    headline.from('.headline-text-box h3', { opacity: 0, y: 30, duration: 1, ease: 'back.in'})
-          .from('.headline-text-box p', { opacity: 0, y: 40, duration: 0.7, ease: 'back.inOut'})
+    headline.from('.headline-text-box h3', { opacity: 0, y: 30, duration: 0.7 })
+          .from('.headline-text-box p', { opacity: 0, y: 40, duration: 0.8, ease: 'back'})
           .from('#cat_boxes', { opacity: 0, y: 40, duration: 0.7, ease: 'back' });
     let editor_p = gsap.timeline({
       scrollTrigger: {
-        trigger: '#editor_pick',
-        start: 'top bottom',
+        trigger: '#headline',
+        start: 'top center+=30%',
+        markers: true,
       }
     });
   
