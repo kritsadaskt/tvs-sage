@@ -219,7 +219,7 @@ domReady(async () => {
       scrollTrigger: {
         trigger: '#headline',
         start: 'top center+=30%',
-        markers: true,
+        //markers: true,
       }
     });
   
@@ -368,6 +368,9 @@ if (document.getElementById('player')) {
 window.onYouTubeIframeAPIReady = function () {
   player = new YT.Player('player', {
     videoId: initialVideoId, // Initial video ID retrieved from data attribute
+    playerVars: {
+      'rel': 0
+    },
   });
 }
 

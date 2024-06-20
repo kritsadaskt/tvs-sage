@@ -42,7 +42,7 @@
     <div id="reel_slider" class="swiper">
       <div class="swiper-wrapper">
         @foreach ($reels as $reel)
-        <a title="" href="{{ $reel['reel_url'] }}" class="reel-item swiper-slide relative flex justify-center items-center group">
+        <a title="" href="{{ $reel['reel_url'] }}" target="_blank" class="reel-item swiper-slide relative flex justify-center items-center group">
           <svg class="play-btn absolute group-hover:scale-125 ease-out duration-300" width="70" height="74" viewBox="0 0 70 74" fill="none" xmlns="http://www.w3.org/2000/svg">
             <path d="M0 36.75C0 24.3086 6.5625 12.8242 17.5 6.53516C28.3008 0.246094 41.5625 0.246094 52.5 6.53516C63.3008 12.8242 70 24.3086 70 36.75C70 49.3281 63.3008 60.8125 52.5 67.1016C41.5625 73.3906 28.3008 73.3906 17.5 67.1016C6.5625 60.8125 0 49.3281 0 36.75ZM25.7031 21.9844C24.6094 22.5312 24.0625 23.625 24.0625 24.7188V48.7812C24.0625 50.0117 24.6094 51.1055 25.7031 51.6523C26.6602 52.3359 28.0273 52.1992 28.9844 51.6523L48.6719 39.6211C49.6289 38.9375 50.3125 37.9805 50.3125 36.75C50.3125 35.6562 49.6289 34.5625 48.6719 34.0156L28.9844 21.9844C28.0273 21.3008 26.6602 21.3008 25.7031 21.8477V21.9844Z" fill="white"/>
             </svg>            
@@ -52,7 +52,7 @@
       </div>
     </div>
     <div class="view-all-btn-wrapper text-center flex mt-8 justify-center">
-      <a href="" class="view-all-articles uppercase text-white bg-tvs-orange-1 rounded-3xl px-10 py-2 tvs-btn-hover">SEE MORE REELS</a>
+      <a href="https://www.instagram.com/thaipbs/" target="_blank" class="view-all-articles uppercase text-white bg-tvs-orange-1 rounded-3xl px-10 py-2 tvs-btn-hover">SEE MORE REELS</a>
     </div>
   </div>
 </div>
