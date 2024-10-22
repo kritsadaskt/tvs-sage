@@ -85,10 +85,10 @@ function add_footer_menu_location() {
 }
 add_action('after_setup_theme', 'add_footer_menu_location');
 
-function loadFontAwesome() {
-  wp_enqueue_script('FontAwesome', 'https://kit.fontawesome.com/7c1bfc6a69.js');
-}
-add_action('wp_enqueue_scripts', 'loadFontAwesome');
+// function loadFontAwesome() {
+//   wp_enqueue_script('FontAwesome', 'https://kit.fontawesome.com/7c1bfc6a69.js');
+// }
+// add_action('wp_enqueue_scripts', 'loadFontAwesome');
 
 function wpdocs_excerpt_more( $more ) {
   // return '... <a href="'. get_the_permalink() .'" title="'. get_the_title() .'" class="font-semibold text-tvs-orange-1 text-base">Read More</a>';

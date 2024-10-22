@@ -13,7 +13,9 @@
     </div>
   </div>
   <div id="menu_pane" class="side-panel fixed h-full w-full lg:w-1/3 z-10 top-0 right-0 bg-black/95 px-10 pt-12 flex flex-col gap-11">
-    <button id="close_menu_panel" class="w-11 h-11 self-end"><i class="fa-solid fa-xmark text-white text-3xl"></i></button>
+    <button id="close_menu_panel" class="w-11 h-11 self-end">
+      <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24" fill="white" stroke="white" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-x"><path d="M18 6 6 18"/><path d="m6 6 12 12"/></svg>
+    </button>
     @if (has_nav_menu('primary_navigation'))
       <nav class="nav-primary" aria-label="{{ wp_get_nav_menu_name('primary_navigation') }}">
         {!! 
@@ -28,7 +30,9 @@
   </div>
 </div>
 <div id="search_panel" class="fixed top-0 left-0 w-full h-full bg-black/90 z-50 animate__animated animate__fadeIn pt-20 px-12">
-  <button id="close_search_panel"><i class="fa-solid fa-xmark text-white text-5xl"></i></button>
+  <button id="close_search_panel">
+    <svg xmlns="http://www.w3.org/2000/svg" width="40" height="40" viewBox="0 0 24 24" fill="white" stroke="white" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-x"><path d="M18 6 6 18"/><path d="m6 6 12 12"/></svg>
+  </button>
   <div class="search-form w-full">
     <form role="search" method="get" class="search-form flex justify-center gap-7 py-10 w-full" action="<?php echo esc_url( home_url( '/' ) ); ?>">
       <label>
